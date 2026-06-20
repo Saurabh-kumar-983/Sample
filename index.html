@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataNest AI Community</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;background:#07111f;color:#eef6ff;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .header{position:sticky;top:0;background:rgba(7,17,31,.9);backdrop-filter:blur(14px);z-index:10;border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:900;font-size:24px;letter-spacing:.3px}
+    .brand span{background:linear-gradient(135deg,#4be1ec,#9b7bff);padding:8px 11px;border-radius:14px;margin-right:8px;color:#06101d}
+    .links{display:flex;gap:20px;align-items:center}
+    .links a{color:#c9d8e8;font-weight:600}
+    .btn{display:inline-block;padding:12px 18px;border-radius:14px;font-weight:800;border:0;cursor:pointer}
+    .primary{background:linear-gradient(135deg,#4be1ec,#9b7bff);color:#06101d}
+    .ghost{border:1px solid rgba(255,255,255,.18);color:#fff}
+    .section{max-width:1180px;margin:auto;padding:80px 22px}
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+    .eyebrow{display:inline-block;color:#4be1ec;font-weight:900;text-transform:uppercase;font-size:13px;letter-spacing:1.5px;margin-bottom:14px}
+    h1{font-size:58px;line-height:1.05;margin-bottom:22px}
+    h2{font-size:38px;line-height:1.15;margin-bottom:16px}
+    h3{font-size:22px;margin-bottom:10px}
+    p{color:#b9c7d8}
+    .hero p{font-size:18px;max-width:690px}
+    .actions{display:flex;gap:14px;margin:28px 0;flex-wrap:wrap}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+    .stats div,.card,.cat,.post,.feature,.admin-box{background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.22)}
+    .stats strong{font-size:26px;display:block;color:#fff}
+    .stats span{color:#9fb0c5;font-size:14px}
+    .card{min-height:360px;background:linear-gradient(145deg,rgba(75,225,236,.18),rgba(155,123,255,.14))}
+    .card-top{display:flex;gap:8px;margin-bottom:22px}
+    .card-top i{width:12px;height:12px;border-radius:50%;background:#4be1ec}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+    .tags span{background:rgba(75,225,236,.13);border:1px solid rgba(75,225,236,.3);padding:6px 10px;border-radius:999px;color:#dffcff;font-size:13px;font-weight:700}
+    .chart{height:120px;display:flex;align-items:end;gap:12px;margin:25px 0}
+    .chart i{flex:1;background:linear-gradient(#4be1ec,#9b7bff);border-radius:12px 12px 4px 4px}
+    .heading{margin-bottom:34px}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .cat{transition:.25s}
+    .cat:hover,.post:hover,.feature:hover{transform:translateY(-5px);border-color:rgba(75,225,236,.45)}
+    .cat b{font-size:34px;display:block;margin-bottom:10px}
+    .feed{display:grid;grid-template-columns:1fr 330px;gap:22px}
+    .search{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;margin-bottom:18px}
+    .post{margin-bottom:16px}
+    .author{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+    .avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#4be1ec,#9b7bff);display:grid;place-items:center;color:#06101d;font-weight:900}
+    .author small{display:block;color:#8fa2b8}
+    .post-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .post-actions button{background:rgba(255,255,255,.08);color:#dfefff;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 12px;cursor:pointer}
+    .side li{margin:10px 0;color:#d6e6f7}
+    .form{display:grid;gap:14px;max-width:760px}
+    input,select,textarea{padding:15px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.08);color:white;font-size:15px}
+    option{color:#111}
+    .admin{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+    .admin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .admin-box strong{font-size:32px;color:#4be1ec;display:block}
+    .cta{text-align:center;background:linear-gradient(135deg,rgba(75,225,236,.16),rgba(155,123,255,.18));border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer{text-align:center;padding:28px;color:#8fa2b8}
+    .mobile{display:none}
+    @media(max-width:900px){
+      .hero,.feed,.admin{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      h1{font-size:42px}
+      .links{display:none}
+      .mobile{display:block;background:none;border:0;color:white;font-size:26px}
+      .links.show{display:flex;position:absolute;top:70px;left:16px;right:16px;flex-direction:column;background:#0c1a2c;border:1px solid rgba(255,255,255,.12);padding:18px;border-radius:18px}
+    }
+    @media(max-width:560px){
+      .grid,.stats,.admin-grid{grid-template-columns:1fr}
+      h1{font-size:34px}
+      h2{font-size:28px}
+      .section{padding:55px 16px}
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="#"><span>DN</span>DataNest</a>
+    <button class="mobile" onclick="toggleMenu()">☰</button>
+    <div class="links" id="links">
+      <a href="#feed">Feed</a>
+      <a href="#categories">Categories</a>
+      <a href="#create">Create Post</a>
+      <a href="#admin">Admin</a>
+      <a class="btn primary" href="#join">Join</a>
+    </div>
+  </nav>
+</header>
+
+<section class="section hero">
+  <div>
+    <span class="eyebrow">AI • SQL • Python • BI • Machine Learning</span>
+    <h1>Daily posting community for AI and data professionals.</h1>
+    <p>Share AI news, projects, dashboards, datasets, SQL fixes, Python tips, and business intelligence insights. A clean community cockpit for learners, analysts, moderators, and admins.</p>
+    <div class="actions">
+      <a class="btn primary" href="#create">Create Post</a>
+      <a class="btn ghost" href="#feed">Explore Feed</a>
+    </div>
+    <div class="stats">
+      <div><strong>18K+</strong><span>Community posts</span></div>
+      <div><strong>7</strong><span>Learning categories</span></div>
+      <div><strong>AI</strong><span>Moderation ready</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top"><i></i><i></i><i></i></div>
+    <h3>Today’s Trending Insight</h3>
+    <p>How to optimize slow SQL dashboards using indexing, clean joins, and summary tables.</p>
+    <div class="tags"><span>SQL</span><span>Dashboard</span><span>Performance</span></div>
+    <div class="chart">
+      <i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:86%"></i><i style="height:70%"></i>
+    </div>
+    <div class="post-actions"><button>👍 248</button><button>💬 42</button><button>🔖 Save</button></div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="heading">
+    <span class="eyebrow">Knowledge lanes</span>
+    <h2>Organized categories for focused learning</h2>
+  </div>
+  <div class="grid">
+    <div class="cat"><b>🤖</b><h3>AI</h3><p>News, tools, prompts, summaries, and experiments.</p></div>
+    <div class="cat"><b>📊</b><h3>Data Analysis</h3><p>Business analysis, Excel logic, and data storytelling.</p></div>
+    <div class="cat"><b>🧠</b><h3>Machine Learning</h3><p>Models, metrics, projects, and deployment notes.</p></div>
+    <div class="cat"><b>🐍</b><h3>Python</h3><p>Pandas, automation, notebooks, and reusable scripts.</p></div>
+    <div class="cat"><b>🧮</b><h3>SQL</h3><p>Query fixes, optimization, joins, and reporting logic.</p></div>
+    <div class="cat"><b>📈</b><h3>Power BI</h3><p>Dashboards, DAX, visuals, and KPI design.</p></div>
+    <div class="cat"><b>🌐</b><h3>Tableau</h3><p>Stories, filters, charts, and analytics practices.</p></div>
+    <div class="cat"><b>🛡️</b><h3>Moderation</h3><p>Reports, spam checks, user safety, and quality control.</p></div>
+  </div>
+</section>
+
+<section class="section" id="feed">
+  <div class="heading">
+    <span class="eyebrow">Community feed</span>
+    <h2>Read, discuss, save, and report posts</h2>
+  </div>
+
+  <input class="search" id="searchInput" onkeyup="searchPosts()" placeholder="Search posts by AI, SQL, Python, dashboard..." />
+
+  <div class="feed">
+    <div id="postList">
+      <article class="post" data-search="sql dashboard performance join duplicate">
+        <div class="author"><span class="avatar">AK</span><div><strong>Ankit Kumar</strong><small>SQL • 20 min ago</small></div></div>
+        <h3>Why your dashboard becomes slow after joins</h3>
+        <p>Check duplicate keys before joining. One-to-many joins can quietly multiply rows like a spreadsheet gremlin wearing a data warehouse cape.</p>
+        <div class="tags"><span>SQL</span><span>BI</span><span>Optimization</span></div>
+        <div class="post-actions"><button>Like</button><button>Comment</button><button>Bookmark</button><button>Report</button></div>
+      </article>
+
+      <article class="post" data-search="ai python automation analyst workflow">
+        <div class="author"><span class="avatar">PR</span><div><strong>Priya Roy</strong><small>AI • 1 hr ago</small></div></div>
+        <h3>Daily AI workflow for analysts</h3>
+        <p>Use AI to summarize tickets, generate query drafts, validate business logic, and prepare clear management updates.</p>
+        <div class="tags"><span>AI</span><span>Automation</span><span>Productivity</span></div>
+        <div class="post-actions"><button>Like</button><button>Comment</button><button>Bookmark</button><button>Report</button></div>
+      </article>
+
+      <article class="post" data-search="power bi dashboard data analysis kpi checklist">
+        <div class="author"><span class="avatar">DS</span><div><strong>Deepak Sen</strong><small>Power BI • 3 hrs ago</small></div></div>
+        <h3>Dashboard checklist before sending to management</h3>
+        <p>Verify date filters, totals, drill-down paths, permissions, refresh timing, and whether every KPI supports a business decision.</p>
+        <div class="tags"><span>Power BI</span><span>Dashboard</span><span>Checklist</span></div>
+        <div class="post-actions"><button>Like</button><button>Comment</button><button>Bookmark</button><button>Report</button></div>
+      </article>
+    </div>
+
+    <aside class="card side">
+      <h3>Trending Today</h3>
+      <ol>
+        <li>AI report automation</li>
+        <li>SQL duplicate join issue</li>
+        <li>Python data cleaning</li>
+        <li>Power BI KPI design</li>
+      </ol>
+      <br>
+      <h3>Top Contributors</h3>
+      <div class="tags"><span>AK</span><span>PR</span><span>DS</span><span>SM</span></div>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="create">
+  <div class="heading">
+    <span class="eyebrow">Post creator</span>
+    <h2>Create a daily post</h2>
+    <p>This is a frontend demo form. Backend can be added later with login, database, comments, likes, and admin approval.</p>
+  </div>
+
+  <form class="form" onsubmit="addPost(event)">
+    <input id="title" placeholder="Post title" required />
+    <select id="category">
+      <option>AI</option>
+      <option>Data Analysis</option>
+      <option>SQL</option>
+      <option>Python</option>
+      <option>Machine Learning</option>
+      <option>Power BI</option>
+      <option>Tableau</option>
+    </select>
+    <textarea id="content" rows="5" placeholder="Share your tip, project, dataset, or learning..." required></textarea>
+    <button class="btn primary" type="submit">Publish Demo Post</button>
+  </form>
+</section>
+
+<section class="section">
+  <div class="heading">
+    <span class="eyebrow">Platform engine</span>
+    <h2>Features designed for real community growth</h2>
+  </div>
+  <div class="grid">
+    <div class="feature"><h3>User Profiles</h3><p>Bio, saved posts, followers, and contribution history.</p></div>
+    <div class="feature"><h3>AI Moderation</h3><p>Spam detection, toxic text checks, auto tags, summaries, and related posts.</p></div>
+    <div class="feature"><h3>Smart Search</h3><p>Search by keyword, tag, category, trending score, and author.</p></div>
+    <div class="feature"><h3>Notifications</h3><p>Likes, comments, followers, admin decisions, and trending alerts.</p></div>
+  </div>
+</section>
+
+<section class="section admin" id="admin">
+  <div>
+    <span class="eyebrow">Admin dashboard</span>
+    <h2>Moderation command center</h2>
+    <p>Admins can review reported posts, remove spam, suspend users, pin key content, and manage categories.</p>
+  </div>
+  <div class="admin-grid">
+    <div class="admin-box"><strong>128</strong><span>Total posts</span></div>
+    <div class="admin-box"><strong>9</strong><span>Reports pending</span></div>
+    <div class="admin-box"><strong>3</strong><span>Flagged by AI</span></div>
+    <div class="admin-box"><strong>42</strong><span>Active users</span></div>
+  </div>
+</section>
+
+<section class="section cta" id="join">
+  <h2>Build a serious AI and data community, one daily post at a time.</h2>
+  <p>Start with the MVP: login, profiles, posts, comments, likes, reports, search, categories, and admin moderation.</p>
+  <br>
+  <a class="btn primary" href="#create">Start Posting</a>
+</section>
+
+<footer class="footer">
+  © 2026 DataNest AI Community. Frontend starter website.
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById("links").classList.toggle("show");
+  }
+
+  function searchPosts(){
+    const value = document.getElementById("searchInput").value.toLowerCase();
+    const posts = document.querySelectorAll(".post");
+    posts.forEach(post => {
+      const text = post.innerText.toLowerCase() + " " + post.dataset.search;
+      post.style.display = text.includes(value) ? "block" : "none";
+    });
+  }
+
+  function addPost(event){
+    event.preventDefault();
+
+    const title = document.getElementById("title").value;
+    const category = document.getElementById("category").value;
+    const content = document.getElementById("content").value;
+
+    const post = document.createElement("article");
+    post.className = "post";
+    post.setAttribute("data-search", `${title} ${category} ${content}`.toLowerCase());
+
+    post.innerHTML = `
+      <div class="author">
+        <span class="avatar">YOU</span>
+        <div><strong>You</strong><small>${category} • Just now</small></div>
+      </div>
+      <h3>${escapeHTML(title)}</h3>
+      <p>${escapeHTML(content)}</p>
+      <div class="tags"><span>${escapeHTML(category)}</span><span>New Post</span></div>
+      <div class="post-actions">
+        <button>Like</button><button>Comment</button><button>Bookmark</button><button>Report</button>
+      </div>
+    `;
+
+    document.getElementById("postList").prepend(post);
+    event.target.reset();
+    location.href = "#feed";
+  }
+
+  function escapeHTML(str){
+    return str.replace(/[&<>"']/g, function(match){
+      return {
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+      }[match];
+    });
+  }
+</script>
+
+</body>
+</html>

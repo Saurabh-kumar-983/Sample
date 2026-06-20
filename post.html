@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post Details | DataNest Pro</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:
+    radial-gradient(circle at top left,rgba(75,225,236,.15),transparent 30%),
+    radial-gradient(circle at top right,rgba(155,123,255,.18),transparent 32%),
+    #06101f;
+  color:#eef6ff;
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+.header{
+  position:sticky;
+  top:0;
+  background:rgba(5,15,30,.78);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.10);
+  z-index:10;
+}
+.nav{
+  max-width:1180px;
+  margin:auto;
+  padding:16px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  font-size:28px;
+  font-weight:900;
+}
+.brand span{
+  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+  padding:8px 11px;
+  border-radius:14px;
+  color:#06101d;
+  margin-right:8px;
+}
+.links{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+.links a{
+  color:#c9d8e8;
+  font-weight:700;
+}
+.links a:hover{color:#4be1ec}
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:14px;
+  font-weight:900;
+  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+  color:#06101d;
+  transition:.25s;
+}
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(75,225,236,.3);
+}
+.container{
+  max-width:1180px;
+  margin:auto;
+  padding:42px 22px 80px;
+}
+.layout{
+  display:grid;
+  grid-template-columns:1fr 340px;
+  gap:24px;
+  align-items:start;
+}
+.card{
+  background:rgba(255,255,255,.075);
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:26px;
+  padding:26px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+.author{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  margin-bottom:22px;
+}
+.avatar{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+  display:grid;
+  place-items:center;
+  color:#06101d;
+  font-weight:900;
+}
+small{color:#8fa2b8}
+h1{
+  font-size:46px;
+  line-height:1.08;
+  margin-bottom:18px;
+  background:linear-gradient(135deg,#fff,#bcecff,#bda8ff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+h2{font-size:26px;margin-bottom:14px}
+h3{font-size:20px;margin-bottom:8px}
+p{color:#b9c7d8;margin-bottom:16px}
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:18px 0;
+}
+.tags span{
+  background:rgba(75,225,236,.13);
+  border:1px solid rgba(75,225,236,.3);
+  padding:7px 11px;
+  border-radius:999px;
+  color:#dffcff;
+  font-size:13px;
+  font-weight:800;
+}
+.cover{
+  height:260px;
+  border-radius:24px;
+  background:
+    linear-gradient(135deg,rgba(75,225,236,.20),rgba(155,123,255,.20)),
+    repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px);
+  margin:24px 0;
+  display:grid;
+  place-items:center;
+  font-size:56px;
+}
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:24px 0;
+}
+.actions button{
+  background:rgba(255,255,255,.08);
+  color:#dfefff;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:999px;
+  padding:10px 14px;
+  cursor:pointer;
+  font-weight:700;
+}
+.actions button:hover{background:rgba(75,225,236,.14)}
+.comment{
+  padding:16px;
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+  margin-bottom:12px;
+}
+textarea{
+  width:100%;
+  min-height:110px;
+  padding:15px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.08);
+  color:white;
+  resize:vertical;
+  margin-bottom:12px;
+}
+.side-list{
+  display:grid;
+  gap:14px;
+}
+.side-item{
+  padding:16px;
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+  transition:.25s;
+}
+.side-item:hover{
+  transform:translateY(-4px);
+  background:rgba(255,255,255,.09);
+}
+.metric{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:14px;
+}
+.metric div{
+  background:rgba(255,255,255,.06);
+  border-radius:18px;
+  padding:16px;
+  text-align:center;
+}
+.metric strong{
+  display:block;
+  color:#4be1ec;
+  font-size:26px;
+}
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .links{display:none}
+  h1{font-size:34px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="index.html"><span>DN</span>DataNest Pro</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="login.html">Login</a>
+      <a class="btn" href="signup.html">Join</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="layout">
+
+    <article class="card">
+      <div class="author">
+        <div class="avatar">AK</div>
+        <div>
+          <strong>Ankit Kumar</strong>
+          <small>SQL Developer • Posted 20 min ago</small>
+        </div>
+      </div>
+
+      <h1>Why your dashboard becomes slow after joins</h1>
+
+      <p>
+        Many dashboard performance problems start with one silent issue:
+        duplicate keys before joining tables. A join that looks correct can multiply rows,
+        distort totals, and slow the complete dashboard.
+      </p>
+
+      <div class="tags">
+        <span>SQL</span>
+        <span>Dashboard</span>
+        <span>Performance</span>
+        <span>Data Modeling</span>
+      </div>
+
+      <div class="cover">📊</div>
+
+      <h2>Main explanation</h2>
+      <p>
+        Before joining two datasets, always check whether the joining column is unique
+        on at least one side. If both sides contain repeated values, the output can become
+        many-to-many and create unexpected duplicate records.
+      </p>
+
+      <p>
+        For example, if one equipment number exists three times in Table A and five times
+        in Table B, the join can create fifteen rows for that equipment. This is why row
+        counts suddenly jump after joining.
+      </p>
+
+      <h2>Checklist before joining</h2>
+      <p>1. Check duplicate count in both tables.</p>
+      <p>2. Decide the correct grain of the report.</p>
+      <p>3. Aggregate the child table before joining.</p>
+      <p>4. Use latest-date logic where only one record is required.</p>
+      <p>5. Validate final row count after join.</p>
+
+      <div class="actions">
+        <button onclick="likePost()">👍 Like <span id="likeCount">248</span></button>
+        <button>💬 Comment</button>
+        <button>🔖 Bookmark</button>
+        <button>🚩 Report</button>
+        <button onclick="sharePost()">🔗 Share</button>
+      </div>
+
+      <section>
+        <h2>Comments</h2>
+
+        <div id="comments">
+          <div class="comment">
+            <strong>Priya Roy</strong>
+            <p>This is exactly why my dashboard row count increased after lookup. Very useful.</p>
+          </div>
+          <div class="comment">
+            <strong>Deepak Sen</strong>
+            <p>Aggregating before join is the cleanest fix. Good explanation.</p>
+          </div>
+        </div>
+
+        <textarea id="commentBox" placeholder="Write your comment..."></textarea>
+        <button class="btn" onclick="addComment()">Post Comment</button>
+      </section>
+    </article>
+
+    <aside class="card">
+      <h2>Post Analytics</h2>
+      <div class="metric">
+        <div><strong>248</strong><span>Likes</span></div>
+        <div><strong>42</strong><span>Comments</span></div>
+        <div><strong>89</strong><span>Saves</span></div>
+        <div><strong>1.8K</strong><span>Views</span></div>
+      </div>
+
+      <br>
+
+      <h2>Related Posts</h2>
+      <div class="side-list">
+        <a class="side-item" href="post.html">
+          <h3>SQL duplicate join issue</h3>
+          <p>How to detect and fix row multiplication.</p>
+        </a>
+        <a class="side-item" href="post.html">
+          <h3>Dashboard KPI validation</h3>
+          <p>Checklist before sharing reports.</p>
+        </a>
+        <a class="side-item" href="post.html">
+          <h3>Python data cleaning steps</h3>
+          <p>Clean messy Excel data with pandas.</p>
+        </a>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<script>
+let likes = 248;
+
+function likePost(){
+  likes++;
+  document.getElementById("likeCount").innerText = likes;
+}
+
+function addComment(){
+  const box = document.getElementById("commentBox");
+  const text = box.value.trim();
+
+  if(!text){
+    alert("Please write a comment first.");
+    return;
+  }
+
+  const div = document.createElement("div");
+  div.className = "comment";
+  div.innerHTML = `<strong>You</strong><p>${escapeHTML(text)}</p>`;
+
+  document.getElementById("comments").appendChild(div);
+  box.value = "";
+}
+
+function sharePost(){
+  navigator.clipboard.writeText(window.location.href);
+  alert("Post link copied.");
+}
+
+function escapeHTML(str){
+  return str.replace(/[&<>"']/g,function(match){
+    return {
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+    }[match];
+  });
+}
+</script>
+
+</body>
+</html>

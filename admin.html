@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | DataNest Pro</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:
+    radial-gradient(circle at top left,rgba(75,225,236,.14),transparent 30%),
+    radial-gradient(circle at top right,rgba(155,123,255,.18),transparent 34%),
+    #06101f;
+  color:#eef6ff;
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+.header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(5,15,30,.78);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:16px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand{
+  font-size:28px;
+  font-weight:900;
+}
+.brand span{
+  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+  color:#06101d;
+  padding:8px 11px;
+  border-radius:14px;
+  margin-right:8px;
+}
+.links{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+.links a{
+  color:#c9d8e8;
+  font-weight:700;
+}
+.links a:hover{color:#4be1ec}
+.btn{
+  display:inline-block;
+  padding:10px 15px;
+  border-radius:14px;
+  border:0;
+  cursor:pointer;
+  font-weight:900;
+  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+  color:#06101d;
+}
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:38px 22px 80px;
+}
+.hero{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:end;
+  margin-bottom:24px;
+}
+.eyebrow{
+  color:#4be1ec;
+  text-transform:uppercase;
+  font-size:13px;
+  letter-spacing:1.5px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+h1{
+  font-size:44px;
+  line-height:1.08;
+  background:linear-gradient(135deg,#fff,#bcecff,#bda8ff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+p{color:#b9c7d8}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-bottom:24px;
+}
+.card,.stat,.table-card{
+  background:rgba(255,255,255,.075);
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.24);
+}
+.stat{
+  padding:22px;
+}
+.stat span{
+  color:#9fb0c5;
+  font-weight:700;
+}
+.stat strong{
+  display:block;
+  font-size:34px;
+  color:#4be1ec;
+  margin-top:6px;
+}
+.layout{
+  display:grid;
+  grid-template-columns:1fr 360px;
+  gap:20px;
+}
+.card{
+  padding:24px;
+}
+h2{font-size:26px;margin-bottom:14px}
+h3{font-size:18px;margin-bottom:6px}
+.queue{
+  display:grid;
+  gap:14px;
+}
+.report{
+  padding:18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+}
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:12px 0;
+}
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+}
+.red{background:rgba(255,90,90,.14);color:#ffb7b7;border:1px solid rgba(255,90,90,.28)}
+.yellow{background:rgba(255,200,80,.14);color:#ffe0a1;border:1px solid rgba(255,200,80,.28)}
+.green{background:rgba(75,225,140,.14);color:#bdffd6;border:1px solid rgba(75,225,140,.28)}
+.blue{background:rgba(75,225,236,.13);color:#dffcff;border:1px solid rgba(75,225,236,.3)}
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+.actions button{
+  padding:9px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.08);
+  color:#eef6ff;
+  cursor:pointer;
+  font-weight:800;
+}
+.actions button:hover{
+  background:rgba(75,225,236,.14);
+}
+.table-card{
+  margin-top:20px;
+  overflow:hidden;
+}
+.table-head{
+  padding:20px 22px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+th,td{
+  padding:14px 18px;
+  text-align:left;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+th{
+  color:#9fb0c5;
+  font-size:13px;
+}
+td{color:#dcecff}
+.side-list{
+  display:grid;
+  gap:14px;
+}
+.side-item{
+  padding:16px;
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+}
+.progress{
+  height:10px;
+  background:rgba(255,255,255,.08);
+  border-radius:999px;
+  overflow:hidden;
+  margin-top:10px;
+}
+.progress i{
+  display:block;
+  height:100%;
+  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+}
+@media(max-width:900px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .layout{grid-template-columns:1fr}
+  .hero{display:block}
+  .links{display:none}
+  h1{font-size:34px}
+}
+@media(max-width:560px){
+  .stats{grid-template-columns:1fr}
+  table{font-size:13px}
+  th,td{padding:12px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="index.html"><span>DN</span>DataNest Pro</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="post.html">Posts</a>
+      <a href="profile.html">Profile</a>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Admin Control Center</div>
+      <h1>Moderation dashboard</h1>
+      <p>Review posts, manage reports, monitor users, and keep the AI/Data community clean.</p>
+    </div>
+    <a class="btn" href="index.html">View Website</a>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <span>Total Users</span>
+      <strong>4,280</strong>
+    </div>
+    <div class="stat">
+      <span>Total Posts</span>
+      <strong>18,420</strong>
+    </div>
+    <div class="stat">
+      <span>Reports Pending</span>
+      <strong>12</strong>
+    </div>
+    <div class="stat">
+      <span>AI Flagged</span>
+      <strong>7</strong>
+    </div>
+  </section>
+
+  <section class="layout">
+    <div>
+      <div class="card">
+        <h2>Reported Content Queue</h2>
+
+        <div class="queue" id="reportQueue">
+          <div class="report">
+            <h3>Post: “Best AI tool for instant earning”</h3>
+            <p>Reason: Possible spam and misleading claim.</p>
+            <div class="badges">
+              <span class="badge red">High Risk</span>
+              <span class="badge yellow">Spam Check</span>
+              <span class="badge blue">AI Category</span>
+            </div>
+            <div class="actions">
+              <button onclick="resolveReport(this)">Approve</button>
+              <button onclick="resolveReport(this)">Hide</button>
+              <button onclick="resolveReport(this)">Remove</button>
+              <button onclick="resolveReport(this)">Warn User</button>
+            </div>
+          </div>
+
+          <div class="report">
+            <h3>Comment: “Abusive reply in SQL thread”</h3>
+            <p>Reason: Toxic language reported by community member.</p>
+            <div class="badges">
+              <span class="badge red">Toxicity</span>
+              <span class="badge yellow">Needs Review</span>
+            </div>
+            <div class="actions">
+              <button onclick="resolveReport(this)">Approve</button>
+              <button onclick="resolveReport(this)">Hide</button>
+              <button onclick="resolveReport(this)">Remove</button>
+              <button onclick="resolveReport(this)">Warn User</button>
+            </div>
+          </div>
+
+          <div class="report">
+            <h3>Post: “Copied dashboard template”</h3>
+            <p>Reason: Duplicate content suspected.</p>
+            <div class="badges">
+              <span class="badge yellow">Duplicate</span>
+              <span class="badge blue">Power BI</span>
+            </div>
+            <div class="actions">
+              <button onclick="resolveReport(this)">Approve</button>
+              <button onclick="resolveReport(this)">Hide</button>
+              <button onclick="resolveReport(this)">Remove</button>
+              <button onclick="resolveReport(this)">Warn User</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-head">
+          <h2>User Management</h2>
+          <p>Demo table for admin actions.</p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Posts</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Saurabh Raj</td>
+              <td>Admin</td>
+              <td><span class="badge green">Active</span></td>
+              <td>128</td>
+              <td><button class="btn">View</button></td>
+            </tr>
+            <tr>
+              <td>Ankit Kumar</td>
+              <td>User</td>
+              <td><span class="badge green">Active</span></td>
+              <td>82</td>
+              <td><button class="btn">View</button></td>
+            </tr>
+            <tr>
+              <td>Unknown Bot</td>
+              <td>User</td>
+              <td><span class="badge red">Flagged</span></td>
+              <td>14</td>
+              <td><button class="btn">Review</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <aside class="card">
+      <h2>Admin Insights</h2>
+
+      <div class="side-list">
+        <div class="side-item">
+          <h3>Post Safety Score</h3>
+          <p>AI moderation health across recent posts.</p>
+          <div class="progress"><i style="width:82%"></i></div>
+        </div>
+
+        <div class="side-item">
+          <h3>Top Category</h3>
+          <p>SQL posts are trending today.</p>
+          <span class="badge blue">SQL</span>
+        </div>
+
+        <div class="side-item">
+          <h3>Pending Reports</h3>
+          <p>12 reports require admin action.</p>
+          <span class="badge yellow">Review Needed</span>
+        </div>
+
+        <div class="side-item">
+          <h3>System Note</h3>
+          <p>Backend will be connected in Phase 3 for real database actions.</p>
+          <span class="badge green">Frontend Demo</span>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+</main>
+
+<script>
+function resolveReport(button){
+  const report = button.closest(".report");
+  const action = button.innerText;
+  report.innerHTML = `
+    <h3>Report handled</h3>
+    <p>Action taken: ${action}</p>
+    <span class="badge green">Resolved</span>
+  `;
+}
+</script>
+
+</body>
+</html>

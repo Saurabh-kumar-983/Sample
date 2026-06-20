@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup | DataNest Pro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      min-height:100vh;
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at top left,rgba(75,225,236,.18),transparent 32%),
+        radial-gradient(circle at bottom right,rgba(155,123,255,.22),transparent 34%),
+        #06101f;
+      color:#eef6ff;
+      display:grid;
+      place-items:center;
+      padding:24px;
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{
+      width:100%;
+      max-width:1080px;
+      display:grid;
+      grid-template-columns:1fr 460px;
+      gap:28px;
+      align-items:center;
+    }
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      font-size:28px;
+      margin-bottom:30px;
+    }
+    .brand span{
+      background:linear-gradient(135deg,#4be1ec,#9b7bff);
+      color:#06101d;
+      padding:8px 11px;
+      border-radius:14px;
+    }
+    h1{
+      font-size:56px;
+      line-height:1.05;
+      margin-bottom:18px;
+      background:linear-gradient(135deg,#fff,#bcecff,#bda8ff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    p{color:#b9c7d8;font-size:17px;max-width:620px}
+    .points{display:grid;gap:14px;margin-top:32px;max-width:620px}
+    .point{
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.075);
+      border:1px solid rgba(255,255,255,.10);
+      color:#dfefff;
+    }
+    .card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:28px;
+      padding:30px;
+      box-shadow:0 25px 70px rgba(0,0,0,.32);
+      backdrop-filter:blur(18px);
+      animation:fadeUp .8s ease;
+    }
+    .card h2{font-size:30px;margin-bottom:8px}
+    .card p{font-size:14px;margin-bottom:24px}
+    .form{display:grid;gap:14px}
+    label{font-weight:700;color:#dcecff;font-size:14px}
+    input,select{
+      width:100%;
+      padding:15px 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.08);
+      color:white;
+      font-size:15px;
+      outline:none;
+    }
+    option{color:#111}
+    input:focus,select:focus{
+      border-color:#4be1ec;
+      box-shadow:0 0 0 4px rgba(75,225,236,.12);
+    }
+    .btn{
+      width:100%;
+      padding:14px 18px;
+      border-radius:16px;
+      border:0;
+      cursor:pointer;
+      font-weight:900;
+      font-size:15px;
+      background:linear-gradient(135deg,#4be1ec,#9b7bff);
+      color:#06101d;
+      transition:.25s;
+      margin-top:6px;
+    }
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 30px rgba(75,225,236,.3);
+    }
+    .footer-links{
+      margin-top:18px;
+      text-align:center;
+      color:#b9c7d8;
+      font-size:14px;
+    }
+    .footer-links a{color:#4be1ec;font-weight:800}
+    .back{
+      display:inline-block;
+      margin-top:18px;
+      color:#b9c7d8;
+      font-weight:700;
+    }
+    .back:hover{color:#4be1ec}
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(24px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+    @media(max-width:860px){
+      .wrap{grid-template-columns:1fr}
+      h1{font-size:40px}
+    }
+  </style>
+</head>
+<body>
+
+<main class="wrap">
+  <section>
+    <a class="brand" href="index.html"><span>DN</span>DataNest Pro</a>
+    <h1>Join the daily AI & Data learning network.</h1>
+    <p>Create your profile, publish daily insights, save useful posts, and grow your professional data community.</p>
+
+    <div class="points">
+      <div class="point">✓ Create daily posts on AI, SQL, Python, BI, and ML</div>
+      <div class="point">✓ Build your analyst profile and contribution history</div>
+      <div class="point">✓ Join discussions around real business data problems</div>
+    </div>
+
+    <a class="back" href="index.html">← Back to home</a>
+  </section>
+
+  <section class="card">
+    <h2>Create account</h2>
+    <p>This is a frontend demo. Real signup will work after backend authentication is connected.</p>
+
+    <form class="form" onsubmit="demoSignup(event)">
+      <div>
+        <label>Full name</label>
+        <input type="text" placeholder="Your name" required />
+      </div>
+
+      <div>
+        <label>Email address</label>
+        <input type="email" placeholder="you@example.com" required />
+      </div>
+
+      <div>
+        <label>Your role</label>
+        <select required>
+          <option>Data Analyst</option>
+          <option>Business Analyst</option>
+          <option>SQL Developer</option>
+          <option>Python Learner</option>
+          <option>Power BI Developer</option>
+          <option>AI Enthusiast</option>
+          <option>Machine Learning Learner</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Password</label>
+        <input type="password" placeholder="Create password" required />
+      </div>
+
+      <button class="btn" type="submit">Create DataNest Pro Account</button>
+    </form>
+
+    <div class="footer-links">
+      Already registered? <a href="login.html">Login here</a>
+    </div>
+  </section>
+</main>
+
+<script>
+  function demoSignup(event){
+    event.preventDefault();
+    alert("Demo signup successful. Backend will be connected in Phase 3.");
+    window.location.href = "profile.html";
+  }
+</script>
+
+</body>
+</html>

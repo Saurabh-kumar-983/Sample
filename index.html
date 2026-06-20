@@ -6,86 +6,160 @@
   <title>DataNest Pro | AI & Data Community</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Arial,Helvetica,sans-serif;background:#07111f;color:#eef6ff;line-height:1.6}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at top left,rgba(75,225,236,.16),transparent 32%),
+        radial-gradient(circle at top right,rgba(155,123,255,.18),transparent 32%),
+        #06101f;
+      color:#eef6ff;
+      line-height:1.6;
+    }
     a{text-decoration:none;color:inherit}
-  .header{
-  position:sticky;
-  top:0;
-  background:rgba(5,15,30,0.75);
-  backdrop-filter:blur(18px);
-  z-index:10;
-  border-bottom:1px solid rgba(255,255,255,.10);
-  box-shadow:0 10px 40px rgba(0,0,0,.25);
-}
-    .nav{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
-    .brand{
-  font-weight:900;
-  font-size:28px;
-  letter-spacing:.5px;
-  color:#ffffff;
-}
-    .brand span{background:linear-gradient(135deg,#4be1ec,#9b7bff);padding:8px 11px;border-radius:14px;margin-right:8px;color:#06101d}
+    .header{
+      position:sticky;top:0;
+      background:rgba(5,15,30,.78);
+      backdrop-filter:blur(18px);
+      z-index:10;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      box-shadow:0 10px 40px rgba(0,0,0,.25);
+    }
+    .nav{
+      max-width:1180px;margin:auto;padding:16px 22px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{font-weight:900;font-size:28px;letter-spacing:.5px;color:#fff}
+    .brand span{
+      background:linear-gradient(135deg,#4be1ec,#9b7bff);
+      padding:8px 11px;border-radius:14px;margin-right:8px;color:#06101d;
+    }
     .links{display:flex;gap:20px;align-items:center}
-    .links a{color:#c9d8e8;font-weight:600}
-    .btn{display:inline-block;padding:12px 18px;border-radius:14px;font-weight:800;border:0;cursor:pointer}
+    .links a{color:#c9d8e8;font-weight:700}
+    .links a:hover{color:#4be1ec}
+    .btn{
+      display:inline-block;padding:12px 18px;border-radius:14px;
+      font-weight:900;border:0;cursor:pointer;transition:.25s;
+    }
+    .btn:hover{transform:translateY(-2px)}
     .primary{background:linear-gradient(135deg,#4be1ec,#9b7bff);color:#06101d}
-    .ghost{border:1px solid rgba(255,255,255,.18);color:#fff}
-    .section{max-width:1180px;margin:auto;padding:80px 22px}
-    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
-    .eyebrow{display:inline-block;color:#4be1ec;font-weight:900;text-transform:uppercase;font-size:13px;letter-spacing:1.5px;margin-bottom:14px}
-    h1{font-size:58px;line-height:1.05;margin-bottom:22px}
-    h2{font-size:38px;line-height:1.15;margin-bottom:16px}
+    .ghost{border:1px solid rgba(255,255,255,.18);color:#fff;background:rgba(255,255,255,.04)}
+    .section{max-width:1180px;margin:auto;padding:82px 22px}
+    .hero{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:center;
+      min-height:calc(100vh - 80px);
+    }
+    .eyebrow{
+      display:inline-block;color:#4be1ec;font-weight:900;text-transform:uppercase;
+      font-size:13px;letter-spacing:1.5px;margin-bottom:14px;
+    }
+    h1{
+      font-size:64px;line-height:1.02;margin-bottom:22px;
+      background:linear-gradient(135deg,#fff,#bcecff,#bda8ff);
+      -webkit-background-clip:text;color:transparent;
+    }
+    h2{font-size:40px;line-height:1.15;margin-bottom:16px}
     h3{font-size:22px;margin-bottom:10px}
     p{color:#b9c7d8}
-    .hero p{font-size:18px;max-width:690px}
-    .actions{display:flex;gap:14px;margin:28px 0;flex-wrap:wrap}
+    .hero p{font-size:18px;max-width:700px}
+    .actions{display:flex;gap:14px;margin:30px 0;flex-wrap:wrap}
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
-    .stats div,.card,.cat,.post,.feature,.admin-box{background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.22)}
-    .stats strong{font-size:26px;display:block;color:#fff}
+    .stats div,.card,.cat,.post,.feature,.admin-box{
+      background:rgba(255,255,255,.075);
+      border:1px solid rgba(255,255,255,.11);
+      border-radius:26px;padding:22px;
+      box-shadow:0 20px 60px rgba(0,0,0,.25);
+    }
+    .stats strong{font-size:28px;display:block;color:#fff}
     .stats span{color:#9fb0c5;font-size:14px}
-    .card{min-height:360px;background:linear-gradient(145deg,rgba(75,225,236,.18),rgba(155,123,255,.14))}
-    .card-top{display:flex;gap:8px;margin-bottom:22px}
+    .card{
+      min-height:390px;
+      background:linear-gradient(145deg,rgba(75,225,236,.18),rgba(155,123,255,.15));
+      position:relative;overflow:hidden;
+    }
+    .card:before{
+      content:"";position:absolute;inset:-80px -80px auto auto;width:180px;height:180px;
+      background:rgba(75,225,236,.25);filter:blur(50px);border-radius:50%;
+    }
+    .card-top{display:flex;gap:8px;margin-bottom:22px;position:relative}
     .card-top i{width:12px;height:12px;border-radius:50%;background:#4be1ec}
     .tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-    .tags span{background:rgba(75,225,236,.13);border:1px solid rgba(75,225,236,.3);padding:6px 10px;border-radius:999px;color:#dffcff;font-size:13px;font-weight:700}
+    .tags span{
+      background:rgba(75,225,236,.13);border:1px solid rgba(75,225,236,.3);
+      padding:6px 10px;border-radius:999px;color:#dffcff;font-size:13px;font-weight:800;
+    }
     .chart{height:120px;display:flex;align-items:end;gap:12px;margin:25px 0}
-    .chart i{flex:1;background:linear-gradient(#4be1ec,#9b7bff);border-radius:12px 12px 4px 4px}
+    .chart i{
+      flex:1;background:linear-gradient(#4be1ec,#9b7bff);
+      border-radius:12px 12px 4px 4px;animation:rise 1.2s ease both;
+    }
+    @keyframes rise{from{height:5%}to{}}
     .heading{margin-bottom:34px}
     .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    .cat{transition:.25s}
-    .cat:hover,.post:hover,.feature:hover{transform:translateY(-5px);border-color:rgba(75,225,236,.45)}
+    .cat,.post,.feature{transition:.25s}
+    .cat:hover,.post:hover,.feature:hover{
+      transform:translateY(-6px);
+      border-color:rgba(75,225,236,.48);
+      background:rgba(255,255,255,.095);
+    }
     .cat b{font-size:34px;display:block;margin-bottom:10px}
     .feed{display:grid;grid-template-columns:1fr 330px;gap:22px}
-    .search{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;margin-bottom:18px}
+    .search{
+      width:100%;padding:15px 16px;border-radius:16px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.08);color:white;margin-bottom:18px;font-size:15px;
+    }
     .post{margin-bottom:16px}
     .author{display:flex;gap:12px;align-items:center;margin-bottom:14px}
-    .avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#4be1ec,#9b7bff);display:grid;place-items:center;color:#06101d;font-weight:900}
+    .avatar{
+      width:44px;height:44px;border-radius:50%;
+      background:linear-gradient(135deg,#4be1ec,#9b7bff);
+      display:grid;place-items:center;color:#06101d;font-weight:900;
+    }
     .author small{display:block;color:#8fa2b8}
     .post-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-    .post-actions button{background:rgba(255,255,255,.08);color:#dfefff;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 12px;cursor:pointer}
+    .post-actions button{
+      background:rgba(255,255,255,.08);color:#dfefff;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;padding:8px 12px;cursor:pointer;
+    }
+    .post-actions button:hover{background:rgba(75,225,236,.14)}
     .side li{margin:10px 0;color:#d6e6f7}
-    .form{display:grid;gap:14px;max-width:760px}
-    input,select,textarea{padding:15px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.08);color:white;font-size:15px}
+    .form{display:grid;gap:14px;max-width:780px}
+    input,select,textarea{
+      padding:15px 16px;border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.08);color:white;font-size:15px;
+    }
     option{color:#111}
     .admin{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
     .admin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .admin-box strong{font-size:32px;color:#4be1ec;display:block}
-    .cta{text-align:center;background:linear-gradient(135deg,rgba(75,225,236,.16),rgba(155,123,255,.18));border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+    .admin-box strong{font-size:34px;color:#4be1ec;display:block}
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg,rgba(75,225,236,.16),rgba(155,123,255,.18));
+      border-top:1px solid rgba(255,255,255,.1);
+      border-bottom:1px solid rgba(255,255,255,.1);
+    }
     .footer{text-align:center;padding:28px;color:#8fa2b8}
     .mobile{display:none}
     @media(max-width:900px){
       .hero,.feed,.admin{grid-template-columns:1fr}
       .grid{grid-template-columns:repeat(2,1fr)}
-      h1{font-size:42px}
+      h1{font-size:44px}
       .links{display:none}
       .mobile{display:block;background:none;border:0;color:white;font-size:26px}
-      .links.show{display:flex;position:absolute;top:70px;left:16px;right:16px;flex-direction:column;background:#0c1a2c;border:1px solid rgba(255,255,255,.12);padding:18px;border-radius:18px}
+      .links.show{
+        display:flex;position:absolute;top:70px;left:16px;right:16px;
+        flex-direction:column;background:#0c1a2c;border:1px solid rgba(255,255,255,.12);
+        padding:18px;border-radius:18px;
+      }
     }
     @media(max-width:560px){
       .grid,.stats,.admin-grid{grid-template-columns:1fr}
-      h1{font-size:34px}
-      h2{font-size:28px}
-      .section{padding:55px 16px}
+      h1{font-size:36px}
+      h2{font-size:29px}
+      .section{padding:58px 16px}
     }
   </style>
 </head>
@@ -93,9 +167,7 @@
 
 <header class="header">
   <nav class="nav">
-    <a class="brand" href="#">
-  <span>🚀</span> DataNest Pro
-</a>
+    <a class="brand" href="#"><span>DN</span>DataNest Pro</a>
     <button class="mobile" onclick="toggleMenu()">☰</button>
     <div class="links" id="links">
       <a href="#feed">Feed</a>
@@ -110,8 +182,8 @@
 <section class="section hero">
   <div>
     <span class="eyebrow">AI • SQL • Python • BI • Machine Learning</span>
-    <h1>Daily posting community for AI and data professionals.</h1>
-    <p>Share AI news, projects, dashboards, datasets, SQL fixes, Python tips, and business intelligence insights. A clean community cockpit for learners, analysts, moderators, and admins.</p>
+    <h1>Build your daily AI & Data learning network.</h1>
+    <p>Post daily insights, share projects, discuss SQL and Python problems, explore dashboards, and grow with a focused community of AI and data professionals.</p>
     <div class="actions">
       <a class="btn primary" href="#create">Create Post</a>
       <a class="btn ghost" href="#feed">Explore Feed</a>
@@ -260,7 +332,7 @@
 </section>
 
 <footer class="footer">
-  © 2026 DataNest AI Community. Frontend starter website.
+  © 2026 DataNest Pro. Frontend starter website.
 </footer>
 
 <script>

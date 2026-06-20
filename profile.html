@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile | DataNest Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:
+radial-gradient(circle at top left,rgba(75,225,236,.16),transparent 32%),
+radial-gradient(circle at top right,rgba(155,123,255,.18),transparent 32%),
+#06101f;
+color:#eef6ff;
+}
+.container{max-width:1180px;margin:auto;padding:30px}
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+.brand{
+font-size:28px;
+font-weight:900;
+}
+.brand span{
+background:linear-gradient(135deg,#4be1ec,#9b7bff);
+padding:8px 11px;
+border-radius:12px;
+color:#06101d;
+margin-right:8px;
+}
+.profile-top{
+display:grid;
+grid-template-columns:320px 1fr;
+gap:24px;
+margin-bottom:30px;
+}
+.card{
+background:rgba(255,255,255,.07);
+border:1px solid rgba(255,255,255,.12);
+padding:24px;
+border-radius:24px;
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+.avatar{
+width:120px;
+height:120px;
+border-radius:50%;
+background:linear-gradient(135deg,#4be1ec,#9b7bff);
+display:grid;
+place-items:center;
+font-size:38px;
+font-weight:900;
+color:#06101d;
+margin:auto;
+}
+.center{text-align:center}
+h1{font-size:36px;margin-bottom:8px}
+p{color:#b9c7d8}
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+margin-top:18px;
+}
+.stat{
+background:rgba(255,255,255,.06);
+padding:18px;
+border-radius:18px;
+text-align:center;
+}
+.stat strong{
+display:block;
+font-size:28px;
+color:#4be1ec;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+margin-top:20px;
+}
+.badge{
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+background:rgba(75,225,236,.12);
+border:1px solid rgba(75,225,236,.28);
+margin:5px;
+}
+.activity{
+margin-top:18px;
+display:grid;
+gap:14px;
+}
+.post{
+padding:18px;
+border-radius:18px;
+background:rgba(255,255,255,.06);
+}
+.btn{
+display:inline-block;
+padding:12px 18px;
+border-radius:14px;
+font-weight:800;
+background:linear-gradient(135deg,#4be1ec,#9b7bff);
+color:#06101d;
+text-decoration:none;
+margin-top:15px;
+}
+@media(max-width:900px){
+.profile-top,.grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="nav">
+<div class="brand"><span>DN</span>DataNest Pro</div>
+<a href="index.html" class="btn">Home</a>
+</div>
+
+<div class="profile-top">
+<div class="card center">
+<div class="avatar">SR</div>
+<h2 style="margin-top:18px;">Saurabh Raj</h2>
+<p>Data Analyst | SQL | Python | AI</p>
+<a class="btn" href="#">Edit Profile</a>
+</div>
+
+<div class="card">
+<h1>Welcome back 👋</h1>
+<p>Your AI & Data learning dashboard</p>
+
+<div class="stats">
+<div class="stat">
+<strong>128</strong>
+<span>Posts</span>
+</div>
+<div class="stat">
+<strong>4.2K</strong>
+<span>Followers</span>
+</div>
+<div class="stat">
+<strong>560</strong>
+<span>Following</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="grid">
+<div class="card">
+<h2>Skills</h2>
+<div style="margin-top:15px;">
+<span class="badge">SQL</span>
+<span class="badge">Python</span>
+<span class="badge">Power BI</span>
+<span class="badge">Machine Learning</span>
+<span class="badge">Data Analysis</span>
+</div>
+</div>
+
+<div class="card">
+<h2>Achievements</h2>
+<div class="activity">
+<div class="post">🏆 Top SQL Contributor</div>
+<div class="post">🔥 100+ Community Posts</div>
+<div class="post">⭐ Featured Analyst</div>
+</div>
+</div>
+</div>
+
+<div class="card" style="margin-top:22px;">
+<h2>Recent Activities</h2>
+<div class="activity">
+<div class="post">Posted: How to optimize SQL joins</div>
+<div class="post">Commented on AI automation workflow</div>
+<div class="post">Bookmarked Power BI dashboard guide</div>
+</div>
+</div>
+
+</div>
+
+</body>
+</html>

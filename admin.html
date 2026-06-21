@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Dashboard | DataNest Pro</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -54,7 +55,7 @@ p,small{color:#cbd7ee}
 }
 .btn-danger{background:linear-gradient(135deg,#ff5e62,#ff9966);color:white}
 .btn-ghost{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);color:#eef6ff}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:24px}
 .stat,.card,.table-card{
   background:rgba(255,255,255,.09);
   border:1px solid rgba(255,255,255,.13);
@@ -67,11 +68,11 @@ p,small{color:#cbd7ee}
 .layout{display:grid;grid-template-columns:1fr 360px;gap:20px}
 .card{padding:24px}
 .queue{display:grid;gap:14px}
-.post-card,.comment-card{
+.post-card,.comment-card,.challenge-card{
   padding:18px;border-radius:18px;background:rgba(255,255,255,.07);
   border:1px solid rgba(255,255,255,.10);
 }
-.post-card p,.comment-card p{white-space:pre-line;line-height:1.65}
+.post-card p,.comment-card p,.challenge-card p{white-space:pre-line;line-height:1.65}
 .badges{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
 .badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900}
 .red{background:rgba(255,90,90,.14);color:#ffb7b7;border:1px solid rgba(255,90,90,.28)}
@@ -92,8 +93,27 @@ td{color:#eef6ff}
   background:rgba(255,90,90,.14);color:#ffb7b7;border:1px solid rgba(255,90,90,.28);
   border-radius:18px;padding:18px;margin-bottom:20px;
 }
-@media(max-width:900px){
+.form{
+  display:grid;
+  gap:14px;
+  margin-top:18px;
+}
+input,select,textarea{
+  width:100%;
+  padding:14px 15px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.09);
+  color:white;
+  font-family:Inter,Arial,sans-serif;
+  font-size:15px;
+}
+textarea{resize:vertical}
+option{color:#111}
+@media(max-width:1000px){
   .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
   .layout{grid-template-columns:1fr}
   .hero{display:block}
   .links{display:none}
@@ -126,7 +146,7 @@ td{color:#eef6ff}
     <div>
       <div class="eyebrow">Admin Control Center</div>
       <h1>Real moderation dashboard</h1>
-      <p>Manage posts, comments, users, likes, and platform activity from Supabase.</p>
+      <p>Manage posts, comments, users, likes, daily challenges, and platform activity from Supabase.</p>
     </div>
     <a class="btn" href="index.html">View Website</a>
   </section>
@@ -140,6 +160,7 @@ td{color:#eef6ff}
       <div class="stat"><span>Total Posts</span><strong id="postCount">0</strong></div>
       <div class="stat"><span>Total Comments</span><strong id="commentCount">0</strong></div>
       <div class="stat"><span>Total Likes</span><strong id="likeCount">0</strong></div>
+      <div class="stat"><span>Challenges</span><strong id="challengeCount">0</strong></div>
     </section>
 
     <section class="layout">
@@ -147,6 +168,33 @@ td{color:#eef6ff}
         <div class="card">
           <h2>Post Moderation Queue</h2>
           <div class="queue" id="postQueue"></div>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <h2>Create Daily Challenge</h2>
+          <p>Publish one active SQL, Python, AI, BI, or analytics question for users.</p>
+
+          <form class="form" onsubmit="publishChallenge(event)">
+            <input id="challengeTitle" placeholder="Challenge Title" required />
+
+            <select id="challengeCategory" required>
+              <option>SQL</option>
+              <option>Python</option>
+              <option>AI</option>
+              <option>Power BI</option>
+              <option>Machine Learning</option>
+              <option>Data Analysis</option>
+            </select>
+
+            <textarea id="challengeQuestion" rows="6" placeholder="Enter challenge question..." required></textarea>
+
+            <button class="btn" type="submit">Publish Challenge</button>
+          </form>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <h2>Daily Challenge History</h2>
+          <div class="queue" id="challengeQueue"></div>
         </div>
 
         <div class="table-card">
@@ -238,26 +286,36 @@ async function loadDashboard(){
   const isAdmin = await checkAdmin();
   if(!isAdmin) return;
 
-  const [{ data: profiles }, { data: posts }, { data: comments }, { data: likes }] = await Promise.all([
+  const [
+    { data: profiles },
+    { data: posts },
+    { data: comments },
+    { data: likes },
+    { data: challenges }
+  ] = await Promise.all([
     supabaseClient.from("profiles").select("*").order("created_at",{ascending:false}),
     supabaseClient.from("posts").select("*").order("created_at",{ascending:false}),
     supabaseClient.from("comments").select("*").order("created_at",{ascending:false}),
-    supabaseClient.from("likes").select("*")
+    supabaseClient.from("likes").select("*"),
+    supabaseClient.from("daily_challenges").select("*").order("created_at",{ascending:false})
   ]);
 
   const safeProfiles = profiles || [];
   const safePosts = posts || [];
   const safeComments = comments || [];
   const safeLikes = likes || [];
+  const safeChallenges = challenges || [];
 
   document.getElementById("userCount").innerText = safeProfiles.length;
   document.getElementById("postCount").innerText = safePosts.length;
   document.getElementById("commentCount").innerText = safeComments.length;
   document.getElementById("likeCount").innerText = safeLikes.length;
+  document.getElementById("challengeCount").innerText = safeChallenges.length;
 
   renderPosts(safePosts, safeComments, safeLikes);
   renderUsers(safeProfiles);
   renderComments(safeComments);
+  renderChallenges(safeChallenges);
 
   document.getElementById("loading").style.display = "none";
   document.getElementById("dashboard").style.display = "block";
@@ -332,6 +390,102 @@ function renderComments(comments){
       </div>
     </div>
   `).join("");
+}
+
+function renderChallenges(challenges){
+  const box = document.getElementById("challengeQueue");
+
+  if(!challenges.length){
+    box.innerHTML = `<div class="challenge-card">No challenges published yet.</div>`;
+    return;
+  }
+
+  box.innerHTML = challenges.map(challenge => `
+    <div class="challenge-card">
+      <h3>${escapeHTML(challenge.title)}</h3>
+      <p>${escapeHTML(challenge.question)}</p>
+
+      <div class="badges">
+        <span class="badge blue">${escapeHTML(challenge.category || "General")}</span>
+        <span class="badge ${challenge.is_active ? "green" : "red"}">${challenge.is_active ? "Active" : "Inactive"}</span>
+        <span class="badge yellow">${formatDate(challenge.created_at)}</span>
+      </div>
+
+      <div class="actions">
+        <button class="btn" onclick="activateChallenge(${challenge.id})">Make Active</button>
+        <button class="btn btn-danger" onclick="deleteChallenge(${challenge.id})">Delete</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+async function publishChallenge(event){
+  event.preventDefault();
+
+  const title = document.getElementById("challengeTitle").value.trim();
+  const category = document.getElementById("challengeCategory").value;
+  const question = document.getElementById("challengeQuestion").value.trim();
+
+  await supabaseClient
+    .from("daily_challenges")
+    .update({ is_active: false })
+    .eq("is_active", true);
+
+  const { error } = await supabaseClient
+    .from("daily_challenges")
+    .insert({
+      title,
+      category,
+      question,
+      is_active: true
+    });
+
+  if(error){
+    alert(error.message);
+    return;
+  }
+
+  alert("Daily challenge published successfully.");
+  location.reload();
+}
+
+async function activateChallenge(challengeId){
+  if(!confirm("Make this challenge active?")) return;
+
+  await supabaseClient
+    .from("daily_challenges")
+    .update({ is_active: false })
+    .eq("is_active", true);
+
+  const { error } = await supabaseClient
+    .from("daily_challenges")
+    .update({ is_active: true })
+    .eq("id", challengeId);
+
+  if(error){
+    alert(error.message);
+    return;
+  }
+
+  alert("Challenge activated.");
+  location.reload();
+}
+
+async function deleteChallenge(challengeId){
+  if(!confirm("Delete this challenge?")) return;
+
+  const { error } = await supabaseClient
+    .from("daily_challenges")
+    .delete()
+    .eq("id", challengeId);
+
+  if(error){
+    alert(error.message);
+    return;
+  }
+
+  alert("Challenge deleted.");
+  location.reload();
 }
 
 async function deletePost(postId){

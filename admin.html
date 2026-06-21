@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Dashboard | DataNest Pro</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,210 +13,84 @@
 body{
   font-family:Inter,Arial,sans-serif;
   background:
-    radial-gradient(circle at top left,rgba(75,225,236,.14),transparent 30%),
-    radial-gradient(circle at top right,rgba(155,123,255,.18),transparent 34%),
-    #06101f;
-  color:#eef6ff;
-  line-height:1.6;
+    radial-gradient(circle at 10% 10%,rgba(255,94,98,.25),transparent 30%),
+    radial-gradient(circle at 85% 5%,rgba(255,199,44,.18),transparent 28%),
+    radial-gradient(circle at 80% 75%,rgba(0,229,255,.20),transparent 30%),
+    linear-gradient(135deg,#080f2c,#151047 45%,#1a0b38);
+  color:#f7fbff;
 }
 a{text-decoration:none;color:inherit}
 .header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:rgba(5,15,30,.78);
+  position:sticky;top:0;z-index:10;
+  background:rgba(7,12,35,.78);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.10);
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
 .nav{
-  max-width:1200px;
-  margin:auto;
-  padding:16px 22px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  max-width:1200px;margin:auto;padding:16px 22px;
+  display:flex;justify-content:space-between;align-items:center;
 }
-.brand{
-  font-size:28px;
-  font-weight:900;
-}
+.brand{font-size:28px;font-weight:900}
 .brand span{
-  background:linear-gradient(135deg,#4be1ec,#9b7bff);
-  color:#06101d;
-  padding:8px 11px;
-  border-radius:14px;
-  margin-right:8px;
+  background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
+  color:#06101d;padding:8px 11px;border-radius:15px;margin-right:8px;
 }
-.links{
-  display:flex;
-  gap:18px;
-  align-items:center;
-}
-.links a{
-  color:#c9d8e8;
-  font-weight:700;
-}
-.links a:hover{color:#4be1ec}
-.btn{
-  display:inline-block;
-  padding:10px 15px;
-  border-radius:14px;
-  border:0;
-  cursor:pointer;
-  font-weight:900;
-  background:linear-gradient(135deg,#4be1ec,#9b7bff);
-  color:#06101d;
-}
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:38px 22px 80px;
-}
-.hero{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  align-items:end;
-  margin-bottom:24px;
-}
-.eyebrow{
-  color:#4be1ec;
-  text-transform:uppercase;
-  font-size:13px;
-  letter-spacing:1.5px;
-  font-weight:900;
-  margin-bottom:8px;
-}
+.links{display:flex;gap:16px;align-items:center}
+.links a{color:#d9e5ff;font-weight:800}
+.container{max-width:1200px;margin:auto;padding:38px 22px 80px}
+.hero{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px}
+.eyebrow{color:#00e5ff;text-transform:uppercase;font-size:13px;letter-spacing:1.5px;font-weight:900}
 h1{
-  font-size:44px;
-  line-height:1.08;
-  background:linear-gradient(135deg,#fff,#bcecff,#bda8ff);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-p{color:#b9c7d8}
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-  margin-bottom:24px;
-}
-.card,.stat,.table-card{
-  background:rgba(255,255,255,.075);
-  border:1px solid rgba(255,255,255,.11);
-  border-radius:24px;
-  box-shadow:0 20px 60px rgba(0,0,0,.24);
-}
-.stat{
-  padding:22px;
-}
-.stat span{
-  color:#9fb0c5;
-  font-weight:700;
-}
-.stat strong{
-  display:block;
-  font-size:34px;
-  color:#4be1ec;
-  margin-top:6px;
-}
-.layout{
-  display:grid;
-  grid-template-columns:1fr 360px;
-  gap:20px;
-}
-.card{
-  padding:24px;
+  font-size:44px;line-height:1.08;
+  background:linear-gradient(135deg,#fff,#ffe27a,#00e5ff,#c4b5fd);
+  -webkit-background-clip:text;color:transparent;
 }
 h2{font-size:26px;margin-bottom:14px}
 h3{font-size:18px;margin-bottom:6px}
-.queue{
-  display:grid;
-  gap:14px;
+p,small{color:#cbd7ee}
+.btn{
+  display:inline-block;padding:10px 15px;border-radius:14px;border:0;cursor:pointer;
+  font-weight:900;background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);color:#06101d;
 }
-.report{
-  padding:18px;
-  border-radius:18px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.08);
+.btn-danger{background:linear-gradient(135deg,#ff5e62,#ff9966);color:white}
+.btn-ghost{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);color:#eef6ff}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.stat,.card,.table-card{
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:24px;
+  box-shadow:0 24px 70px rgba(0,0,0,.28);
 }
-.badges{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:12px 0;
+.stat{padding:22px}
+.stat span{color:#b9c8e8;font-weight:800}
+.stat strong{display:block;font-size:34px;color:#00e5ff;margin-top:6px}
+.layout{display:grid;grid-template-columns:1fr 360px;gap:20px}
+.card{padding:24px}
+.queue{display:grid;gap:14px}
+.post-card,.comment-card{
+  padding:18px;border-radius:18px;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.10);
 }
-.badge{
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:900;
-}
+.post-card p,.comment-card p{white-space:pre-line;line-height:1.65}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900}
 .red{background:rgba(255,90,90,.14);color:#ffb7b7;border:1px solid rgba(255,90,90,.28)}
-.yellow{background:rgba(255,200,80,.14);color:#ffe0a1;border:1px solid rgba(255,200,80,.28)}
 .green{background:rgba(75,225,140,.14);color:#bdffd6;border:1px solid rgba(75,225,140,.28)}
-.blue{background:rgba(75,225,236,.13);color:#dffcff;border:1px solid rgba(75,225,236,.3)}
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:12px;
-}
-.actions button{
-  padding:9px 12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.08);
-  color:#eef6ff;
-  cursor:pointer;
-  font-weight:800;
-}
-.actions button:hover{
-  background:rgba(75,225,236,.14);
-}
-.table-card{
-  margin-top:20px;
-  overflow:hidden;
-}
-.table-head{
-  padding:20px 22px;
-  border-bottom:1px solid rgba(255,255,255,.10);
-}
-table{
-  width:100%;
-  border-collapse:collapse;
-}
-th,td{
-  padding:14px 18px;
-  text-align:left;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-th{
-  color:#9fb0c5;
-  font-size:13px;
-}
-td{color:#dcecff}
-.side-list{
-  display:grid;
-  gap:14px;
-}
-.side-item{
-  padding:16px;
-  border-radius:18px;
-  background:rgba(255,255,255,.06);
-}
-.progress{
-  height:10px;
-  background:rgba(255,255,255,.08);
-  border-radius:999px;
-  overflow:hidden;
-  margin-top:10px;
-}
-.progress i{
-  display:block;
-  height:100%;
-  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+.blue{background:rgba(0,229,255,.13);color:#e9fbff;border:1px solid rgba(0,229,255,.35)}
+.yellow{background:rgba(255,207,51,.14);color:#ffe8a3;border:1px solid rgba(255,207,51,.30)}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.table-card{margin-top:20px;overflow:hidden}
+.table-head{padding:20px 22px;border-bottom:1px solid rgba(255,255,255,.10)}
+table{width:100%;border-collapse:collapse}
+th,td{padding:14px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+th{color:#b9c8e8;font-size:13px}
+td{color:#eef6ff}
+.side-list{display:grid;gap:14px}
+.side-item{padding:16px;border-radius:18px;background:rgba(255,255,255,.07)}
+.loading{padding:30px;text-align:center;color:#cbd7ee}
+.error-box{
+  background:rgba(255,90,90,.14);color:#ffb7b7;border:1px solid rgba(255,90,90,.28);
+  border-radius:18px;padding:18px;margin-bottom:20px;
 }
 @media(max-width:900px){
   .stats{grid-template-columns:repeat(2,1fr)}
@@ -243,181 +116,268 @@ td{color:#dcecff}
       <a href="index.html">Home</a>
       <a href="post.html">Posts</a>
       <a href="profile.html">Profile</a>
-      <a href="login.html">Logout</a>
+      <a href="#" onclick="logoutUser(event)">Logout</a>
     </div>
   </nav>
 </header>
 
 <main class="container">
-
   <section class="hero">
     <div>
       <div class="eyebrow">Admin Control Center</div>
-      <h1>Moderation dashboard</h1>
-      <p>Review posts, manage reports, monitor users, and keep the AI/Data community clean.</p>
+      <h1>Real moderation dashboard</h1>
+      <p>Manage posts, comments, users, likes, and platform activity from Supabase.</p>
     </div>
     <a class="btn" href="index.html">View Website</a>
   </section>
 
-  <section class="stats">
-    <div class="stat">
-      <span>Total Users</span>
-      <strong>4,280</strong>
-    </div>
-    <div class="stat">
-      <span>Total Posts</span>
-      <strong>18,420</strong>
-    </div>
-    <div class="stat">
-      <span>Reports Pending</span>
-      <strong>12</strong>
-    </div>
-    <div class="stat">
-      <span>AI Flagged</span>
-      <strong>7</strong>
-    </div>
-  </section>
+  <div id="errorBox" class="error-box" style="display:none;"></div>
+  <div id="loading" class="loading">Loading admin dashboard...</div>
 
-  <section class="layout">
-    <div>
-      <div class="card">
-        <h2>Reported Content Queue</h2>
+  <div id="dashboard" style="display:none;">
+    <section class="stats">
+      <div class="stat"><span>Total Users</span><strong id="userCount">0</strong></div>
+      <div class="stat"><span>Total Posts</span><strong id="postCount">0</strong></div>
+      <div class="stat"><span>Total Comments</span><strong id="commentCount">0</strong></div>
+      <div class="stat"><span>Total Likes</span><strong id="likeCount">0</strong></div>
+    </section>
 
-        <div class="queue" id="reportQueue">
-          <div class="report">
-            <h3>Post: “Best AI tool for instant earning”</h3>
-            <p>Reason: Possible spam and misleading claim.</p>
-            <div class="badges">
-              <span class="badge red">High Risk</span>
-              <span class="badge yellow">Spam Check</span>
-              <span class="badge blue">AI Category</span>
-            </div>
-            <div class="actions">
-              <button onclick="resolveReport(this)">Approve</button>
-              <button onclick="resolveReport(this)">Hide</button>
-              <button onclick="resolveReport(this)">Remove</button>
-              <button onclick="resolveReport(this)">Warn User</button>
-            </div>
+    <section class="layout">
+      <div>
+        <div class="card">
+          <h2>Post Moderation Queue</h2>
+          <div class="queue" id="postQueue"></div>
+        </div>
+
+        <div class="table-card">
+          <div class="table-head">
+            <h2>User Management</h2>
+            <p>Current users from Supabase profiles table.</p>
           </div>
 
-          <div class="report">
-            <h3>Comment: “Abusive reply in SQL thread”</h3>
-            <p>Reason: Toxic language reported by community member.</p>
-            <div class="badges">
-              <span class="badge red">Toxicity</span>
-              <span class="badge yellow">Needs Review</span>
-            </div>
-            <div class="actions">
-              <button onclick="resolveReport(this)">Approve</button>
-              <button onclick="resolveReport(this)">Hide</button>
-              <button onclick="resolveReport(this)">Remove</button>
-              <button onclick="resolveReport(this)">Warn User</button>
-            </div>
-          </div>
-
-          <div class="report">
-            <h3>Post: “Copied dashboard template”</h3>
-            <p>Reason: Duplicate content suspected.</p>
-            <div class="badges">
-              <span class="badge yellow">Duplicate</span>
-              <span class="badge blue">Power BI</span>
-            </div>
-            <div class="actions">
-              <button onclick="resolveReport(this)">Approve</button>
-              <button onclick="resolveReport(this)">Hide</button>
-              <button onclick="resolveReport(this)">Remove</button>
-              <button onclick="resolveReport(this)">Warn User</button>
-            </div>
-          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Joined</th>
+              </tr>
+            </thead>
+            <tbody id="userTable"></tbody>
+          </table>
         </div>
       </div>
 
-      <div class="table-card">
-        <div class="table-head">
-          <h2>User Management</h2>
-          <p>Demo table for admin actions.</p>
-        </div>
-
-        <table>
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Role</th>
-              <th>Status</th>
-              <th>Posts</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Saurabh Raj</td>
-              <td>Admin</td>
-              <td><span class="badge green">Active</span></td>
-              <td>128</td>
-              <td><button class="btn">View</button></td>
-            </tr>
-            <tr>
-              <td>Ankit Kumar</td>
-              <td>User</td>
-              <td><span class="badge green">Active</span></td>
-              <td>82</td>
-              <td><button class="btn">View</button></td>
-            </tr>
-            <tr>
-              <td>Unknown Bot</td>
-              <td>User</td>
-              <td><span class="badge red">Flagged</span></td>
-              <td>14</td>
-              <td><button class="btn">Review</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <aside class="card">
-      <h2>Admin Insights</h2>
-
-      <div class="side-list">
-        <div class="side-item">
-          <h3>Post Safety Score</h3>
-          <p>AI moderation health across recent posts.</p>
-          <div class="progress"><i style="width:82%"></i></div>
-        </div>
-
-        <div class="side-item">
-          <h3>Top Category</h3>
-          <p>SQL posts are trending today.</p>
-          <span class="badge blue">SQL</span>
-        </div>
-
-        <div class="side-item">
-          <h3>Pending Reports</h3>
-          <p>12 reports require admin action.</p>
-          <span class="badge yellow">Review Needed</span>
-        </div>
-
-        <div class="side-item">
-          <h3>System Note</h3>
-          <p>Backend will be connected in Phase 3 for real database actions.</p>
-          <span class="badge green">Frontend Demo</span>
-        </div>
-      </div>
-    </aside>
-  </section>
-
+      <aside class="card">
+        <h2>Recent Comments</h2>
+        <div class="side-list" id="commentQueue"></div>
+      </aside>
+    </section>
+  </div>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-function resolveReport(button){
-  const report = button.closest(".report");
-  const action = button.innerText;
-  report.innerHTML = `
-    <h3>Report handled</h3>
-    <p>Action taken: ${action}</p>
-    <span class="badge green">Resolved</span>
-  `;
+const SUPABASE_URL = "https://fthirvblokveageirpwa.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0aGlydmJsb2t2ZWFnZWlycHdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwNTU5MTgsImV4cCI6MjA5NzYzMTkxOH0.gRenoM6MwHLA-idWynTMYbabfrNHzHf32st8zml3cNA";
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let currentUser = null;
+let currentProfile = null;
+
+function escapeHTML(str){
+  return String(str || "").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 }
+
+function showError(msg){
+  document.getElementById("loading").style.display = "none";
+  const box = document.getElementById("errorBox");
+  box.style.display = "block";
+  box.innerText = msg;
+}
+
+function formatDate(dateText){
+  if(!dateText) return "-";
+  return new Date(dateText).toLocaleDateString("en-IN",{year:"numeric",month:"short",day:"numeric"});
+}
+
+async function checkAdmin(){
+  const { data: sessionData } = await supabaseClient.auth.getSession();
+
+  if(!sessionData.session){
+    window.location.href = "login.html";
+    return false;
+  }
+
+  currentUser = sessionData.session.user;
+
+  const { data: profile, error } = await supabaseClient
+    .from("profiles")
+    .select("*")
+    .eq("id", currentUser.id)
+    .single();
+
+  if(error || !profile){
+    showError("Unable to verify admin profile.");
+    return false;
+  }
+
+  currentProfile = profile;
+
+  if(profile.role !== "admin"){
+    showError("Access denied. This page is only for admin users.");
+    return false;
+  }
+
+  return true;
+}
+
+async function loadDashboard(){
+  const isAdmin = await checkAdmin();
+  if(!isAdmin) return;
+
+  const [{ data: profiles }, { data: posts }, { data: comments }, { data: likes }] = await Promise.all([
+    supabaseClient.from("profiles").select("*").order("created_at",{ascending:false}),
+    supabaseClient.from("posts").select("*").order("created_at",{ascending:false}),
+    supabaseClient.from("comments").select("*").order("created_at",{ascending:false}),
+    supabaseClient.from("likes").select("*")
+  ]);
+
+  const safeProfiles = profiles || [];
+  const safePosts = posts || [];
+  const safeComments = comments || [];
+  const safeLikes = likes || [];
+
+  document.getElementById("userCount").innerText = safeProfiles.length;
+  document.getElementById("postCount").innerText = safePosts.length;
+  document.getElementById("commentCount").innerText = safeComments.length;
+  document.getElementById("likeCount").innerText = safeLikes.length;
+
+  renderPosts(safePosts, safeComments, safeLikes);
+  renderUsers(safeProfiles);
+  renderComments(safeComments);
+
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+}
+
+function renderPosts(posts, comments, likes){
+  const box = document.getElementById("postQueue");
+
+  if(!posts.length){
+    box.innerHTML = `<div class="post-card">No posts available.</div>`;
+    return;
+  }
+
+  box.innerHTML = posts.map(post => {
+    const postComments = comments.filter(c => c.post_id === post.id).length;
+    const postLikes = likes.filter(l => l.post_id === post.id).length;
+
+    return `
+      <div class="post-card">
+        <h3>${escapeHTML(post.title)}</h3>
+        <p>${escapeHTML(post.content)}</p>
+
+        <div class="badges">
+          <span class="badge blue">${escapeHTML(post.category || "General")}</span>
+          <span class="badge green">${postLikes} Likes</span>
+          <span class="badge yellow">${postComments} Comments</span>
+          <span class="badge blue">${formatDate(post.created_at)}</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-ghost" href="post.html?id=${post.id}">Open</a>
+          <button class="btn btn-danger" onclick="deletePost(${post.id})">Delete Post</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderUsers(users){
+  const table = document.getElementById("userTable");
+
+  if(!users.length){
+    table.innerHTML = `<tr><td colspan="4">No users found.</td></tr>`;
+    return;
+  }
+
+  table.innerHTML = users.map(user => `
+    <tr>
+      <td>${escapeHTML(user.full_name || "Unnamed")}</td>
+      <td>${escapeHTML(user.email || "-")}</td>
+      <td><span class="badge ${user.role === "admin" ? "green" : "blue"}">${escapeHTML(user.role || "user")}</span></td>
+      <td>${formatDate(user.created_at)}</td>
+    </tr>
+  `).join("");
+}
+
+function renderComments(comments){
+  const box = document.getElementById("commentQueue");
+
+  if(!comments.length){
+    box.innerHTML = `<div class="side-item">No comments yet.</div>`;
+    return;
+  }
+
+  box.innerHTML = comments.slice(0,8).map(comment => `
+    <div class="comment-card">
+      <p>${escapeHTML(comment.comment)}</p>
+      <small>Post ID: ${comment.post_id} • ${formatDate(comment.created_at)}</small>
+      <div class="actions">
+        <a class="btn btn-ghost" href="post.html?id=${comment.post_id}">Open Post</a>
+        <button class="btn btn-danger" onclick="deleteComment(${comment.id})">Delete</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+async function deletePost(postId){
+  if(!confirm("Delete this post and its likes/comments?")) return;
+
+  await supabaseClient.from("likes").delete().eq("post_id", postId);
+  await supabaseClient.from("comments").delete().eq("post_id", postId);
+
+  const { error } = await supabaseClient
+    .from("posts")
+    .delete()
+    .eq("id", postId);
+
+  if(error){
+    alert(error.message);
+    return;
+  }
+
+  alert("Post deleted.");
+  location.reload();
+}
+
+async function deleteComment(commentId){
+  if(!confirm("Delete this comment?")) return;
+
+  const { error } = await supabaseClient
+    .from("comments")
+    .delete()
+    .eq("id", commentId);
+
+  if(error){
+    alert(error.message);
+    return;
+  }
+
+  alert("Comment deleted.");
+  location.reload();
+}
+
+async function logoutUser(e){
+  if(e) e.preventDefault();
+  await supabaseClient.auth.signOut();
+  window.location.href = "login.html";
+}
+
+loadDashboard();
 </script>
 
 </body>

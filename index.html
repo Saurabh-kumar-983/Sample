@@ -63,7 +63,7 @@
     .cat,.post,.feature{transition:.25s}
     .cat:hover,.post:hover,.feature:hover{transform:translateY(-6px);border-color:rgba(255,207,51,.55);background:rgba(255,255,255,.11)}
     .cat b{font-size:34px;display:block;margin-bottom:10px}
-    .feed{display:grid;grid-template-columns:1fr 340px;gap:22px}
+    .feed{display:grid;grid-template-columns:1fr 380px;gap:24px}
     .search,input,select,textarea{width:100%;padding:15px 16px;border-radius:17px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.09);color:white;font-size:15px}
     .search{margin-bottom:18px}
     option{color:#111}
@@ -77,7 +77,6 @@
     .post-actions button{background:rgba(255,255,255,.09);color:#eef6ff;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:8px 12px;cursor:pointer;font-weight:800}
     .post-actions button:hover{background:rgba(0,229,255,.16)}
     .liked{background:linear-gradient(135deg,#ffcf33,#00e5ff)!important;color:#06101d!important}
-    .side li{margin:10px 0;color:#d6e6f7}
     .form{display:grid;gap:14px;max-width:780px}
     .msg{padding:12px 14px;border-radius:14px;display:none;font-size:14px;font-weight:800}
     .success{background:rgba(75,225,140,.14);border:1px solid rgba(75,225,140,.28);color:#bdffd6}
@@ -88,6 +87,52 @@
     .cta{text-align:center;background:linear-gradient(135deg,rgba(255,207,51,.16),rgba(0,229,255,.15),rgba(139,92,246,.18));border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
     .footer{text-align:center;padding:28px;color:#aebee0}
     .mobile{display:none}
+
+    .smart-panel{
+      min-height:auto;
+      padding:28px;
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.10),rgba(0,229,255,.08),rgba(139,92,246,.12));
+    }
+    .panel-head{display:flex;gap:14px;align-items:center;margin-bottom:20px}
+    .panel-head h3{margin:0;font-size:26px}
+    .panel-head p{font-size:13px;color:#aebee0}
+    .panel-icon{
+      width:48px;height:48px;display:grid;place-items:center;border-radius:16px;
+      background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
+      color:#06101d;font-weight:900;box-shadow:0 10px 30px rgba(0,229,255,.25);
+    }
+    .trend-list{display:grid;gap:14px}
+    .trend-item{
+      display:grid;grid-template-columns:44px 1fr 40px;align-items:center;gap:14px;
+      padding:14px;border-radius:18px;background:rgba(255,255,255,.075);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .trend-item span{
+      width:36px;height:36px;display:grid;place-items:center;border-radius:12px;
+      background:linear-gradient(135deg,#00e5ff,#8b5cf6);
+      color:#06101d;font-weight:900;
+    }
+    .trend-item p{margin:0;color:#eef6ff;font-weight:800}
+    .trend-item b{
+      width:38px;height:38px;display:grid;place-items:center;border-radius:50%;
+      background:rgba(255,255,255,.08);
+    }
+    .user-panel{margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12)}
+    .user-chip{
+      display:grid;grid-template-columns:48px 1fr 12px;align-items:center;gap:14px;
+      padding:15px;border-radius:18px;background:rgba(255,255,255,.075);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .user-chip span{
+      width:48px;height:48px;display:grid;place-items:center;border-radius:50%;
+      background:linear-gradient(135deg,#00e5ff,#8b5cf6);
+      color:white;font-weight:900;
+    }
+    .user-chip strong{display:block;color:#ffffff;font-size:14px;word-break:break-all}
+    .user-chip small{color:#aebee0}
+    .user-chip i{width:12px;height:12px;border-radius:50%;background:#28e98c;box-shadow:0 0 18px rgba(40,233,140,.7)}
+
     @media(max-width:900px){
       .hero,.feed,.admin{grid-template-columns:1fr}
       .grid{grid-template-columns:repeat(2,1fr)}
@@ -153,11 +198,8 @@
     <div class="eyebrow">Knowledge lanes</div>
     <h2>Dynamic categories from Supabase</h2>
   </div>
-
   <div class="grid" id="categoriesGrid">
-    <div class="cat">
-      <h3>Loading categories...</h3>
-    </div>
+    <div class="cat"><h3>Loading categories...</h3></div>
   </div>
 </section>
 
@@ -167,12 +209,41 @@
 
   <div class="feed">
     <div id="postList"></div>
-    <aside class="card side">
-      <h3>Trending Today</h3>
-      <ol><li>AI report automation</li><li>SQL duplicate join issue</li><li>Python data cleaning</li><li>Power BI KPI design</li></ol>
-      <br>
-      <h3>Current User</h3>
-      <p id="currentUserText">Checking login...</p>
+
+    <aside class="card side smart-panel">
+      <div class="panel-head">
+        <span class="panel-icon">↗</span>
+        <div>
+          <h3>Trending Today</h3>
+          <p>Hot topics from the community</p>
+        </div>
+      </div>
+
+      <div class="trend-list">
+        <div class="trend-item"><span>1</span><p>AI report automation</p><b>🤖</b></div>
+        <div class="trend-item"><span>2</span><p>SQL duplicate join issue</p><b>🧮</b></div>
+        <div class="trend-item"><span>3</span><p>Python data cleaning</p><b>🐍</b></div>
+        <div class="trend-item"><span>4</span><p>Power BI KPI design</p><b>📊</b></div>
+      </div>
+
+      <div class="user-panel">
+        <div class="panel-head">
+          <span class="panel-icon">👤</span>
+          <div>
+            <h3>Current User</h3>
+            <p>Signed in and active</p>
+          </div>
+        </div>
+
+        <div class="user-chip">
+          <span id="currentUserAvatar">DN</span>
+          <div>
+            <strong id="currentUserText">Checking login...</strong>
+            <small>Online now</small>
+          </div>
+          <i></i>
+        </div>
+      </div>
     </aside>
   </div>
 </section>
@@ -186,10 +257,7 @@
 
   <form class="form" onsubmit="createPost(event)">
     <input id="title" placeholder="Post title" required />
-    <select id="category">
-      <option>AI</option><option>Data Analysis</option><option>SQL</option><option>Python</option>
-      <option>Machine Learning</option><option>Power BI</option><option>Tableau</option>
-    </select>
+    <select id="category"></select>
     <textarea id="content" rows="7" placeholder="Share your tip, project, dataset, or learning..." required></textarea>
     <div id="messageBox" class="msg"></div>
     <button id="postBtn" class="btn primary" type="submit">Publish Post</button>
@@ -247,8 +315,12 @@ async function checkSession(){
   currentUser = data.session ? data.session.user : null;
 
   const userText = document.getElementById("currentUserText");
+  const userAvatar = document.getElementById("currentUserAvatar");
+
   if(currentUser){
     userText.innerText = currentUser.email;
+    userAvatar.innerText = currentUser.email.substring(0,2).toUpperCase();
+
     document.getElementById("loginLink").innerText = "Profile";
     document.getElementById("loginLink").href = "profile.html";
     document.getElementById("joinLink").innerText = "Logout";
@@ -256,6 +328,7 @@ async function checkSession(){
     document.getElementById("joinLink").onclick = logoutUser;
   }else{
     userText.innerText = "Not logged in";
+    userAvatar.innerText = "DN";
   }
 }
 
@@ -311,9 +384,7 @@ async function loadPosts(){
     return;
   }
 
-  const { data: likesData } = await supabaseClient
-    .from("likes")
-    .select("post_id,user_id");
+  const { data: likesData } = await supabaseClient.from("likes").select("post_id,user_id");
 
   const likeCounts = {};
   userLikedPostIds = [];
@@ -325,10 +396,7 @@ async function loadPosts(){
     }
   });
 
-  allPosts = (posts || []).map(post => ({
-    ...post,
-    real_like_count: likeCounts[post.id] || 0
-  }));
+  allPosts = (posts || []).map(post => ({...post,real_like_count: likeCounts[post.id] || 0}));
 
   renderPosts(allPosts);
   document.getElementById("totalPosts").innerText = allPosts.length;
@@ -431,22 +499,13 @@ async function toggleLike(postId){
       .eq("post_id", postId)
       .eq("user_id", currentUser.id);
 
-    if(error){
-      alert(error.message);
-      return;
-    }
+    if(error){alert(error.message);return;}
   }else{
     const { error } = await supabaseClient
       .from("likes")
-      .insert({
-        post_id: postId,
-        user_id: currentUser.id
-      });
+      .insert({post_id: postId,user_id: currentUser.id});
 
-    if(error){
-      alert(error.message);
-      return;
-    }
+    if(error){alert(error.message);return;}
   }
 
   await loadPosts();

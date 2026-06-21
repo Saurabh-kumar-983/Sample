@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,150 +13,125 @@
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
-      font-family:Inter,Arial,Helvetica,sans-serif;
+      font-family:Inter,Arial,sans-serif;
       background:
-        radial-gradient(circle at top left,rgba(75,225,236,.16),transparent 32%),
-        radial-gradient(circle at top right,rgba(155,123,255,.18),transparent 32%),
-        #06101f;
-      color:#eef6ff;
+        radial-gradient(circle at 10% 10%,rgba(255,94,98,.28),transparent 30%),
+        radial-gradient(circle at 85% 5%,rgba(255,199,44,.20),transparent 28%),
+        radial-gradient(circle at 80% 75%,rgba(0,229,255,.22),transparent 30%),
+        linear-gradient(135deg,#080f2c,#151047 45%,#1a0b38);
+      color:#f7fbff;
       line-height:1.6;
     }
     a{text-decoration:none;color:inherit}
     .header{
-      position:sticky;top:0;
-      background:rgba(5,15,30,.78);
+      position:sticky;top:0;z-index:10;
+      background:rgba(7,12,35,.78);
       backdrop-filter:blur(18px);
-      z-index:10;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      box-shadow:0 10px 40px rgba(0,0,0,.25);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      box-shadow:0 10px 40px rgba(0,0,0,.28);
     }
     .nav{
-      max-width:1180px;margin:auto;padding:16px 22px;
+      max-width:1200px;margin:auto;padding:16px 22px;
       display:flex;align-items:center;justify-content:space-between;
     }
-    .brand{font-weight:900;font-size:28px;letter-spacing:.5px;color:#fff}
+    .brand{font-weight:900;font-size:28px;letter-spacing:.5px}
     .brand span{
-      background:linear-gradient(135deg,#4be1ec,#9b7bff);
-      padding:8px 11px;border-radius:14px;margin-right:8px;color:#06101d;
+      background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
+      padding:8px 11px;border-radius:15px;margin-right:8px;color:#06101d;
+      box-shadow:0 0 28px rgba(0,229,255,.35);
     }
-    .links{display:flex;gap:20px;align-items:center}
-    .links a{color:#c9d8e8;font-weight:700}
-    .links a:hover{color:#4be1ec}
+    .links{display:flex;gap:18px;align-items:center}
+    .links a{color:#d9e5ff;font-weight:800}
+    .links a:hover{color:#00e5ff}
     .btn{
-      display:inline-block;padding:12px 18px;border-radius:14px;
+      display:inline-block;padding:12px 18px;border-radius:15px;
       font-weight:900;border:0;cursor:pointer;transition:.25s;
     }
-    .btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 10px 30px rgba(75,225,236,.3);
-    }
-    .primary{background:linear-gradient(135deg,#4be1ec,#9b7bff);color:#06101d}
-    .ghost{border:1px solid rgba(255,255,255,.18);color:#fff;background:rgba(255,255,255,.04)}
-    .section{max-width:1180px;margin:auto;padding:82px 22px}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(0,229,255,.35)}
+    .primary{background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);color:#06101d}
+    .ghost{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07)}
+    .section{max-width:1200px;margin:auto;padding:82px 22px}
     .hero{
-      display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:center;
-      min-height:calc(100vh - 80px);
-      animation:fadeUp 1s ease;
+      display:grid;grid-template-columns:1.12fr .88fr;gap:38px;align-items:center;
+      min-height:calc(100vh - 80px);animation:fadeUp 1s ease;
     }
-    .eyebrow{
-      display:inline-block;color:#4be1ec;font-weight:900;text-transform:uppercase;
-      font-size:13px;letter-spacing:1.5px;margin-bottom:14px;
-    }
+    .eyebrow{color:#00e5ff;font-weight:900;text-transform:uppercase;font-size:13px;letter-spacing:1.6px;margin-bottom:14px}
     h1{
       font-size:64px;line-height:1.02;margin-bottom:22px;
-      background:linear-gradient(135deg,#fff,#bcecff,#bda8ff);
+      background:linear-gradient(135deg,#fff,#ffe27a,#00e5ff,#c4b5fd);
       -webkit-background-clip:text;color:transparent;
     }
     h2{font-size:40px;line-height:1.15;margin-bottom:16px}
     h3{font-size:22px;margin-bottom:10px}
-    p{color:#b9c7d8}
+    p{color:#cbd7ee}
     .hero p{font-size:18px;max-width:700px}
     .actions{display:flex;gap:14px;margin:30px 0;flex-wrap:wrap}
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
     .stats div,.card,.cat,.post,.feature,.admin-box{
-      background:rgba(255,255,255,.075);
-      border:1px solid rgba(255,255,255,.11);
-      border-radius:26px;padding:22px;
-      box-shadow:0 20px 60px rgba(0,0,0,.25);
+      background:rgba(255,255,255,.085);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:28px;padding:22px;
+      box-shadow:0 24px 70px rgba(0,0,0,.28);
     }
     .stats strong{font-size:28px;display:block;color:#fff}
-    .stats span{color:#9fb0c5;font-size:14px}
+    .stats span{color:#b9c8e8;font-size:14px}
     .card{
       min-height:390px;
-      background:linear-gradient(145deg,rgba(75,225,236,.18),rgba(155,123,255,.15));
-      position:relative;overflow:hidden;
-      transition:.3s;
+      background:linear-gradient(145deg,rgba(255,207,51,.16),rgba(0,229,255,.16),rgba(139,92,246,.18));
+      position:relative;overflow:hidden;transition:.3s;
     }
     .card:hover{transform:translateY(-8px)}
     .card:before{
-      content:"";position:absolute;inset:-80px -80px auto auto;width:180px;height:180px;
-      background:rgba(75,225,236,.25);filter:blur(50px);border-radius:50%;
+      content:"";position:absolute;inset:-80px -80px auto auto;width:200px;height:200px;
+      background:rgba(255,207,51,.25);filter:blur(55px);border-radius:50%;
     }
     .card-top{display:flex;gap:8px;margin-bottom:22px;position:relative}
-    .card-top i{width:12px;height:12px;border-radius:50%;background:#4be1ec}
+    .card-top i{width:12px;height:12px;border-radius:50%;background:#00e5ff}
     .tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-    .tags span{
-      background:rgba(75,225,236,.13);border:1px solid rgba(75,225,236,.3);
-      padding:6px 10px;border-radius:999px;color:#dffcff;font-size:13px;font-weight:800;
+    .tags span,.badge{
+      background:rgba(0,229,255,.13);border:1px solid rgba(0,229,255,.35);
+      padding:7px 11px;border-radius:999px;color:#e9fbff;font-size:13px;font-weight:800;
     }
     .chart{height:120px;display:flex;align-items:end;gap:12px;margin:25px 0}
-    .chart i{
-      flex:1;background:linear-gradient(#4be1ec,#9b7bff);
-      border-radius:12px 12px 4px 4px;animation:rise 1.2s ease both;
-    }
+    .chart i{flex:1;background:linear-gradient(#ffcf33,#00e5ff,#8b5cf6);border-radius:12px 12px 4px 4px;animation:rise 1.2s ease both}
     @keyframes rise{from{height:5%}}
-    @keyframes fadeUp{
-      from{opacity:0;transform:translateY(25px)}
-      to{opacity:1;transform:translateY(0)}
-    }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
     .heading{margin-bottom:34px}
     .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
     .cat,.post,.feature{transition:.25s}
-    .cat:hover,.post:hover,.feature:hover{
-      transform:translateY(-6px);
-      border-color:rgba(75,225,236,.48);
-      background:rgba(255,255,255,.095);
-    }
+    .cat:hover,.post:hover,.feature:hover{transform:translateY(-6px);border-color:rgba(255,207,51,.55);background:rgba(255,255,255,.11)}
     .cat b{font-size:34px;display:block;margin-bottom:10px}
-    .feed{display:grid;grid-template-columns:1fr 330px;gap:22px}
-    .search{
-      width:100%;padding:15px 16px;border-radius:16px;
-      border:1px solid rgba(255,255,255,.15);
-      background:rgba(255,255,255,.08);color:white;margin-bottom:18px;font-size:15px;
+    .feed{display:grid;grid-template-columns:1fr 340px;gap:22px}
+    .search,input,select,textarea{
+      width:100%;padding:15px 16px;border-radius:17px;border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.09);color:white;font-size:15px;
     }
+    .search{margin-bottom:18px}
+    option{color:#111}
     .post{margin-bottom:16px}
     .author{display:flex;gap:12px;align-items:center;margin-bottom:14px}
     .avatar{
       width:44px;height:44px;border-radius:50%;
-      background:linear-gradient(135deg,#4be1ec,#9b7bff);
+      background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
       display:grid;place-items:center;color:#06101d;font-weight:900;
     }
-    .author small{display:block;color:#8fa2b8}
+    .author small{display:block;color:#aebee0}
     .post-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
     .post-actions button{
-      background:rgba(255,255,255,.08);color:#dfefff;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:999px;padding:8px 12px;cursor:pointer;
+      background:rgba(255,255,255,.09);color:#eef6ff;border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;padding:8px 12px;cursor:pointer;font-weight:800;
     }
-    .post-actions button:hover{background:rgba(75,225,236,.14)}
+    .post-actions button:hover{background:rgba(0,229,255,.16)}
     .side li{margin:10px 0;color:#d6e6f7}
     .form{display:grid;gap:14px;max-width:780px}
-    input,select,textarea{
-      padding:15px 16px;border-radius:16px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.08);color:white;font-size:15px;
-    }
-    option{color:#111}
+    .msg{padding:12px 14px;border-radius:14px;display:none;font-size:14px;font-weight:800}
+    .success{background:rgba(75,225,140,.14);border:1px solid rgba(75,225,140,.28);color:#bdffd6}
+    .error{background:rgba(255,90,90,.14);border:1px solid rgba(255,90,90,.28);color:#ffb7b7}
     .admin{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
     .admin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .admin-box strong{font-size:34px;color:#4be1ec;display:block}
-    .cta{
-      text-align:center;
-      background:linear-gradient(135deg,rgba(75,225,236,.16),rgba(155,123,255,.18));
-      border-top:1px solid rgba(255,255,255,.1);
-      border-bottom:1px solid rgba(255,255,255,.1);
-    }
-    .footer{text-align:center;padding:28px;color:#8fa2b8}
+    .admin-box strong{font-size:34px;color:#00e5ff;display:block}
+    .cta{text-align:center;background:linear-gradient(135deg,rgba(255,207,51,.16),rgba(0,229,255,.15),rgba(139,92,246,.18));border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer{text-align:center;padding:28px;color:#aebee0}
     .mobile{display:none}
     @media(max-width:900px){
       .hero,.feed,.admin{grid-template-columns:1fr}
@@ -165,11 +139,7 @@
       h1{font-size:44px}
       .links{display:none}
       .mobile{display:block;background:none;border:0;color:white;font-size:26px}
-      .links.show{
-        display:flex;position:absolute;top:70px;left:16px;right:16px;
-        flex-direction:column;background:#0c1a2c;border:1px solid rgba(255,255,255,.12);
-        padding:18px;border-radius:18px;
-      }
+      .links.show{display:flex;position:absolute;top:70px;left:16px;right:16px;flex-direction:column;background:#111936;border:1px solid rgba(255,255,255,.12);padding:18px;border-radius:18px}
     }
     @media(max-width:560px){
       .grid,.stats,.admin-grid{grid-template-columns:1fr}
@@ -184,9 +154,7 @@
 <header class="header">
   <nav class="nav">
     <a class="brand" href="index.html"><span>DN</span>DataNest Pro</a>
-
     <button class="mobile" onclick="toggleMenu()">☰</button>
-
     <div class="links" id="links">
       <a href="index.html">Home</a>
       <a href="#feed">Feed</a>
@@ -194,15 +162,15 @@
       <a href="post.html">Post</a>
       <a href="profile.html">Profile</a>
       <a href="admin.html">Admin</a>
-      <a href="login.html">Login</a>
-      <a class="btn primary" href="signup.html">Join</a>
+      <a href="login.html" id="loginLink">Login</a>
+      <a class="btn primary" href="signup.html" id="joinLink">Join</a>
     </div>
   </nav>
 </header>
 
 <section class="section hero">
   <div>
-    <span class="eyebrow">AI • SQL • Python • BI • Machine Learning</span>
+    <div class="eyebrow">AI • SQL • Python • BI • Machine Learning</div>
     <h1>Build your daily AI & Data learning network.</h1>
     <p>Post daily insights, share projects, discuss SQL and Python problems, explore dashboards, and grow with a focused community of AI and data professionals.</p>
     <div class="actions">
@@ -210,29 +178,23 @@
       <a class="btn ghost" href="#feed">Explore Feed</a>
     </div>
     <div class="stats">
-      <div><strong>18K+</strong><span>Community posts</span></div>
+      <div><strong id="totalPosts">0</strong><span>Live posts</span></div>
       <div><strong>7</strong><span>Learning categories</span></div>
-      <div><strong>AI</strong><span>Moderation ready</span></div>
+      <div><strong>AI</strong><span>Community ready</span></div>
     </div>
   </div>
 
   <div class="card">
     <div class="card-top"><i></i><i></i><i></i></div>
     <h3>Today’s Trending Insight</h3>
-    <p>How to optimize slow SQL dashboards using indexing, clean joins, and summary tables.</p>
-    <div class="tags"><span>SQL</span><span>Dashboard</span><span>Performance</span></div>
-    <div class="chart">
-      <i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:86%"></i><i style="height:70%"></i>
-    </div>
-    <div class="post-actions"><button>👍 248</button><button>💬 42</button><button>🔖 Save</button></div>
+    <p>Real Supabase-powered posts are now live. Your homepage is no longer just decoration, it has a tiny engine room humming under the floorboards.</p>
+    <div class="tags"><span>Supabase</span><span>Frontend</span><span>Community</span></div>
+    <div class="chart"><i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:86%"></i><i style="height:70%"></i></div>
   </div>
 </section>
 
 <section class="section" id="categories">
-  <div class="heading">
-    <span class="eyebrow">Knowledge lanes</span>
-    <h2>Organized categories for focused learning</h2>
-  </div>
+  <div class="heading"><div class="eyebrow">Knowledge lanes</div><h2>Organized categories for focused learning</h2></div>
   <div class="grid">
     <div class="cat"><b>🤖</b><h3>AI</h3><p>News, tools, prompts, summaries, and experiments.</p></div>
     <div class="cat"><b>📊</b><h3>Data Analysis</h3><p>Business analysis, Excel logic, and data storytelling.</p></div>
@@ -246,172 +208,204 @@
 </section>
 
 <section class="section" id="feed">
-  <div class="heading">
-    <span class="eyebrow">Community feed</span>
-    <h2>Read, discuss, save, and report posts</h2>
-  </div>
-
+  <div class="heading"><div class="eyebrow">Community feed</div><h2>Live posts from Supabase</h2></div>
   <input class="search" id="searchInput" onkeyup="searchPosts()" placeholder="Search posts by AI, SQL, Python, dashboard..." />
 
   <div class="feed">
-    <div id="postList">
-      <article class="post" data-search="sql dashboard performance join duplicate">
-        <div class="author"><span class="avatar">AK</span><div><strong>Ankit Kumar</strong><small>SQL • 20 min ago</small></div></div>
-        <h3>Why your dashboard becomes slow after joins</h3>
-        <p>Check duplicate keys before joining. One-to-many joins can quietly multiply rows like a spreadsheet gremlin wearing a data warehouse cape.</p>
-        <div class="tags"><span>SQL</span><span>BI</span><span>Optimization</span></div>
-        <div class="post-actions"><button>Like</button><button>Comment</button><button>Bookmark</button><button>Report</button></div>
-      </article>
-
-      <article class="post" data-search="ai python automation analyst workflow">
-        <div class="author"><span class="avatar">PR</span><div><strong>Priya Roy</strong><small>AI • 1 hr ago</small></div></div>
-        <h3>Daily AI workflow for analysts</h3>
-        <p>Use AI to summarize tickets, generate query drafts, validate business logic, and prepare clear management updates.</p>
-        <div class="tags"><span>AI</span><span>Automation</span><span>Productivity</span></div>
-        <div class="post-actions"><button>Like</button><button>Comment</button><button>Bookmark</button><button>Report</button></div>
-      </article>
-
-      <article class="post" data-search="power bi dashboard data analysis kpi checklist">
-        <div class="author"><span class="avatar">DS</span><div><strong>Deepak Sen</strong><small>Power BI • 3 hrs ago</small></div></div>
-        <h3>Dashboard checklist before sending to management</h3>
-        <p>Verify date filters, totals, drill-down paths, permissions, refresh timing, and whether every KPI supports a business decision.</p>
-        <div class="tags"><span>Power BI</span><span>Dashboard</span><span>Checklist</span></div>
-        <div class="post-actions"><button>Like</button><button>Comment</button><button>Bookmark</button><button>Report</button></div>
-      </article>
-    </div>
-
+    <div id="postList"></div>
     <aside class="card side">
       <h3>Trending Today</h3>
-      <ol>
-        <li>AI report automation</li>
-        <li>SQL duplicate join issue</li>
-        <li>Python data cleaning</li>
-        <li>Power BI KPI design</li>
-      </ol>
+      <ol><li>AI report automation</li><li>SQL duplicate join issue</li><li>Python data cleaning</li><li>Power BI KPI design</li></ol>
       <br>
-      <h3>Top Contributors</h3>
-      <div class="tags"><span>AK</span><span>PR</span><span>DS</span><span>SM</span></div>
+      <h3>Current User</h3>
+      <p id="currentUserText">Checking login...</p>
     </aside>
   </div>
 </section>
 
 <section class="section" id="create">
   <div class="heading">
-    <span class="eyebrow">Post creator</span>
-    <h2>Create a daily post</h2>
-    <p>This is a frontend demo form. Backend can be added later with login, database, comments, likes, and admin approval.</p>
+    <div class="eyebrow">Post creator</div>
+    <h2>Create a real post</h2>
+    <p>This form now saves your post into Supabase.</p>
   </div>
 
-  <form class="form" onsubmit="addPost(event)">
+  <form class="form" onsubmit="createPost(event)">
     <input id="title" placeholder="Post title" required />
     <select id="category">
-      <option>AI</option>
-      <option>Data Analysis</option>
-      <option>SQL</option>
-      <option>Python</option>
-      <option>Machine Learning</option>
-      <option>Power BI</option>
-      <option>Tableau</option>
+      <option>AI</option><option>Data Analysis</option><option>SQL</option><option>Python</option>
+      <option>Machine Learning</option><option>Power BI</option><option>Tableau</option>
     </select>
     <textarea id="content" rows="5" placeholder="Share your tip, project, dataset, or learning..." required></textarea>
-    <button class="btn primary" type="submit">Publish Demo Post</button>
+    <div id="messageBox" class="msg"></div>
+    <button id="postBtn" class="btn primary" type="submit">Publish Post</button>
   </form>
 </section>
 
-<section class="section">
-  <div class="heading">
-    <span class="eyebrow">Platform engine</span>
-    <h2>Features designed for real community growth</h2>
-  </div>
-  <div class="grid">
-    <div class="feature"><h3>User Profiles</h3><p>Bio, saved posts, followers, and contribution history.</p></div>
-    <div class="feature"><h3>AI Moderation</h3><p>Spam detection, toxic text checks, auto tags, summaries, and related posts.</p></div>
-    <div class="feature"><h3>Smart Search</h3><p>Search by keyword, tag, category, trending score, and author.</p></div>
-    <div class="feature"><h3>Notifications</h3><p>Likes, comments, followers, admin decisions, and trending alerts.</p></div>
-  </div>
-</section>
-
 <section class="section admin" id="admin">
-  <div>
-    <span class="eyebrow">Admin dashboard</span>
-    <h2>Moderation command center</h2>
-    <p>Admins can review reported posts, remove spam, suspend users, pin key content, and manage categories.</p>
-  </div>
+  <div><div class="eyebrow">Admin dashboard</div><h2>Moderation command center</h2><p>Admins can review reported posts, remove spam, suspend users, pin key content, and manage categories.</p></div>
   <div class="admin-grid">
-    <div class="admin-box"><strong>128</strong><span>Total posts</span></div>
-    <div class="admin-box"><strong>9</strong><span>Reports pending</span></div>
-    <div class="admin-box"><strong>3</strong><span>Flagged by AI</span></div>
-    <div class="admin-box"><strong>42</strong><span>Active users</span></div>
+    <div class="admin-box"><strong id="adminPostCount">0</strong><span>Total posts</span></div>
+    <div class="admin-box"><strong>0</strong><span>Reports pending</span></div>
+    <div class="admin-box"><strong>0</strong><span>Flagged by AI</span></div>
+    <div class="admin-box"><strong>Live</strong><span>Supabase connected</span></div>
   </div>
 </section>
 
 <section class="section cta" id="join">
   <h2>Build a serious AI and data community, one daily post at a time.</h2>
-  <p>Start with the MVP: login, profiles, posts, comments, likes, reports, search, categories, and admin moderation.</p>
-  <br>
+  <p>Authentication and post creation are now connected to Supabase.</p><br>
   <a class="btn primary" href="signup.html">Start Posting</a>
 </section>
 
-<footer class="footer">
-  © 2026 DataNest Pro. Frontend starter website.
-</footer>
+<footer class="footer">© 2026 DataNest Pro. Supabase-powered community MVP.</footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  function toggleMenu(){
-    document.getElementById("links").classList.toggle("show");
+const SUPABASE_URL = "https://fthirvblokveageirpwa.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0aGlydmJsb2t2ZWFnZWlycHdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwNTU5MTgsImV4cCI6MjA5NzYzMTkxOH0.gRenoM6MwHLA-idWynTMYbabfrNHzHf32st8zml3cNA";
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let currentUser = null;
+let allPosts = [];
+
+function toggleMenu(){document.getElementById("links").classList.toggle("show")}
+
+function showMessage(type,msg){
+  const box=document.getElementById("messageBox");
+  box.className="msg "+type;
+  box.style.display="block";
+  box.innerText=msg;
+}
+
+function escapeHTML(str){
+  return String(str || "").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+}
+
+function getInitials(name,email){
+  if(name) return name.split(" ").map(w=>w[0]).join("").substring(0,2).toUpperCase();
+  return email ? email.substring(0,2).toUpperCase() : "US";
+}
+
+async function checkSession(){
+  const { data } = await supabaseClient.auth.getSession();
+  currentUser = data.session ? data.session.user : null;
+
+  const userText = document.getElementById("currentUserText");
+  if(currentUser){
+    userText.innerText = currentUser.email;
+    document.getElementById("loginLink").innerText = "Profile";
+    document.getElementById("loginLink").href = "profile.html";
+    document.getElementById("joinLink").innerText = "Logout";
+    document.getElementById("joinLink").href = "#";
+    document.getElementById("joinLink").onclick = logoutUser;
+  }else{
+    userText.innerText = "Not logged in";
+  }
+}
+
+async function logoutUser(e){
+  if(e) e.preventDefault();
+  await supabaseClient.auth.signOut();
+  window.location.href = "login.html";
+}
+
+async function loadPosts(){
+  const { data, error } = await supabaseClient
+    .from("posts")
+    .select("*")
+    .order("created_at",{ascending:false});
+
+  if(error){
+    document.getElementById("postList").innerHTML = `<div class="post">Unable to load posts: ${escapeHTML(error.message)}</div>`;
+    return;
   }
 
-  function searchPosts(){
-    const value = document.getElementById("searchInput").value.toLowerCase();
-    const posts = document.querySelectorAll(".post");
-    posts.forEach(post => {
-      const text = post.innerText.toLowerCase() + " " + post.dataset.search;
-      post.style.display = text.includes(value) ? "block" : "none";
-    });
+  allPosts = data || [];
+  renderPosts(allPosts);
+  document.getElementById("totalPosts").innerText = allPosts.length;
+  document.getElementById("adminPostCount").innerText = allPosts.length;
+}
+
+function renderPosts(posts){
+  const list = document.getElementById("postList");
+
+  if(!posts.length){
+    list.innerHTML = `<div class="post"><h3>No posts yet</h3><p>Be the first to publish a DataNest Pro post.</p></div>`;
+    return;
   }
 
-  function addPost(event){
-    event.preventDefault();
-
-    const title = document.getElementById("title").value;
-    const category = document.getElementById("category").value;
-    const content = document.getElementById("content").value;
-
-    const post = document.createElement("article");
-    post.className = "post";
-    post.setAttribute("data-search", `${title} ${category} ${content}`.toLowerCase());
-
-    post.innerHTML = `
+  list.innerHTML = posts.map(post => `
+    <article class="post" data-search="${escapeHTML((post.title || "") + " " + (post.category || "") + " " + (post.content || ""))}">
       <div class="author">
-        <span class="avatar">YOU</span>
-        <div><strong>You</strong><small>${category} • Just now</small></div>
+        <span class="avatar">${getInitials("", post.user_id)}</span>
+        <div><strong>Community Member</strong><small>${escapeHTML(post.category)} • ${new Date(post.created_at).toLocaleString("en-IN")}</small></div>
       </div>
-      <h3>${escapeHTML(title)}</h3>
-      <p>${escapeHTML(content)}</p>
-      <div class="tags"><span>${escapeHTML(category)}</span><span>New Post</span></div>
+      <h3>${escapeHTML(post.title)}</h3>
+      <p>${escapeHTML(post.content)}</p>
+      <div class="tags"><span>${escapeHTML(post.category)}</span><span>Live Post</span></div>
       <div class="post-actions">
-        <button>Like</button><button>Comment</button><button>Bookmark</button><button>Report</button>
+        <button onclick="alert('Likes will be connected next')">👍 ${post.likes_count || 0}</button>
+        <button onclick="location.href='post.html'">Open</button>
+        <button>🔖 Save</button>
+        <button>🚩 Report</button>
       </div>
-    `;
+    </article>
+  `).join("");
+}
 
-    document.getElementById("postList").prepend(post);
-    event.target.reset();
-    location.href = "#feed";
+function searchPosts(){
+  const value=document.getElementById("searchInput").value.toLowerCase();
+  const filtered=allPosts.filter(p =>
+    ((p.title||"")+" "+(p.category||"")+" "+(p.content||"")).toLowerCase().includes(value)
+  );
+  renderPosts(filtered);
+}
+
+async function createPost(event){
+  event.preventDefault();
+
+  if(!currentUser){
+    showMessage("error","Please login first to create a post.");
+    setTimeout(()=>window.location.href="login.html",1200);
+    return;
   }
 
-  function escapeHTML(str){
-    return str.replace(/[&<>"']/g, function(match){
-      return {
-        "&":"&amp;",
-        "<":"&lt;",
-        ">":"&gt;",
-        '"':"&quot;",
-        "'":"&#039;"
-      }[match];
-    });
+  const title=document.getElementById("title").value.trim();
+  const category=document.getElementById("category").value;
+  const content=document.getElementById("content").value.trim();
+  const btn=document.getElementById("postBtn");
+
+  btn.disabled=true;
+  btn.innerText="Publishing...";
+
+  const { error } = await supabaseClient.from("posts").insert({
+    user_id: currentUser.id,
+    title,
+    content,
+    category
+  });
+
+  if(error){
+    showMessage("error",error.message);
+    btn.disabled=false;
+    btn.innerText="Publish Post";
+    return;
   }
+
+  showMessage("success","Post published successfully.");
+  event.target.reset();
+  btn.disabled=false;
+  btn.innerText="Publish Post";
+  await loadPosts();
+  location.href="#feed";
+}
+
+async function init(){
+  await checkSession();
+  await loadPosts();
+}
+init();
 </script>
-
 </body>
 </html>
-```

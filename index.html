@@ -134,7 +134,7 @@
     </div>
     <div class="stats">
       <div><strong id="totalPosts">0</strong><span>Live posts</span></div>
-      <div><strong>7</strong><span>Learning categories</span></div>
+      <div><strong id="totalCategories">0</strong><span>Live categories</span></div>
       <div><strong>AI</strong><span>Community ready</span></div>
     </div>
   </div>
@@ -142,23 +142,22 @@
   <div class="card">
     <div class="card-top"><i></i><i></i><i></i></div>
     <h3>Today’s Trending Insight</h3>
-    <p>Real Supabase-powered posts and likes are now live. The community engine is humming.</p>
-    <div class="tags"><span>Supabase</span><span>Posts</span><span>Likes</span></div>
+    <p>Real Supabase-powered posts, likes, comments, and categories are now live.</p>
+    <div class="tags"><span>Supabase</span><span>Posts</span><span>Categories</span></div>
     <div class="chart"><i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:86%"></i><i style="height:70%"></i></div>
   </div>
 </section>
 
 <section class="section" id="categories">
-  <div class="heading"><div class="eyebrow">Knowledge lanes</div><h2>Organized categories for focused learning</h2></div>
-  <div class="grid">
-    <div class="cat"><b>🤖</b><h3>AI</h3><p>News, tools, prompts, summaries, and experiments.</p></div>
-    <div class="cat"><b>📊</b><h3>Data Analysis</h3><p>Business analysis, Excel logic, and data storytelling.</p></div>
-    <div class="cat"><b>🧠</b><h3>Machine Learning</h3><p>Models, metrics, projects, and deployment notes.</p></div>
-    <div class="cat"><b>🐍</b><h3>Python</h3><p>Pandas, automation, notebooks, and reusable scripts.</p></div>
-    <div class="cat"><b>🧮</b><h3>SQL</h3><p>Query fixes, optimization, joins, and reporting logic.</p></div>
-    <div class="cat"><b>📈</b><h3>Power BI</h3><p>Dashboards, DAX, visuals, and KPI design.</p></div>
-    <div class="cat"><b>🌐</b><h3>Tableau</h3><p>Stories, filters, charts, and analytics practices.</p></div>
-    <div class="cat"><b>🛡️</b><h3>Moderation</h3><p>Reports, spam checks, user safety, and quality control.</p></div>
+  <div class="heading">
+    <div class="eyebrow">Knowledge lanes</div>
+    <h2>Dynamic categories from Supabase</h2>
+  </div>
+
+  <div class="grid" id="categoriesGrid">
+    <div class="cat">
+      <h3>Loading categories...</h3>
+    </div>
   </div>
 </section>
 
@@ -201,7 +200,7 @@
   <div><div class="eyebrow">Admin dashboard</div><h2>Moderation command center</h2><p>Admins can review reported posts, remove spam, suspend users, pin key content, and manage categories.</p></div>
   <div class="admin-grid">
     <div class="admin-box"><strong id="adminPostCount">0</strong><span>Total posts</span></div>
-    <div class="admin-box"><strong>0</strong><span>Reports pending</span></div>
+    <div class="admin-box"><strong id="adminCategoryCount">0</strong><span>Total categories</span></div>
     <div class="admin-box"><strong>0</strong><span>Flagged by AI</span></div>
     <div class="admin-box"><strong>Live</strong><span>Supabase connected</span></div>
   </div>
@@ -209,7 +208,7 @@
 
 <section class="section cta" id="join">
   <h2>Build a serious AI and data community, one daily post at a time.</h2>
-  <p>Authentication, posts, and likes are now connected to Supabase.</p><br>
+  <p>Authentication, posts, likes, comments, and categories are now connected to Supabase.</p><br>
   <a class="btn primary" href="signup.html">Start Posting</a>
 </section>
 
@@ -264,6 +263,41 @@ async function logoutUser(e){
   if(e) e.preventDefault();
   await supabaseClient.auth.signOut();
   window.location.href = "login.html";
+}
+
+async function loadCategories(){
+  const { data, error } = await supabaseClient
+    .from("categories")
+    .select("*")
+    .order("id", { ascending: true });
+
+  const grid = document.getElementById("categoriesGrid");
+
+  if(error){
+    grid.innerHTML = `<div class="cat"><h3>Unable to load categories</h3><p>${escapeHTML(error.message)}</p></div>`;
+    return;
+  }
+
+  if(!data || !data.length){
+    grid.innerHTML = `<div class="cat"><h3>No categories found</h3><p>Add categories in Supabase.</p></div>`;
+    document.getElementById("totalCategories").innerText = 0;
+    document.getElementById("adminCategoryCount").innerText = 0;
+    return;
+  }
+
+  grid.innerHTML = data.map(cat => `
+    <div class="cat">
+      <b>${escapeHTML(cat.icon || "📌")}</b>
+      <h3>${escapeHTML(cat.name)}</h3>
+      <p>${escapeHTML(cat.description)}</p>
+    </div>
+  `).join("");
+
+  document.getElementById("totalCategories").innerText = data.length;
+  document.getElementById("adminCategoryCount").innerText = data.length;
+
+  const categorySelect = document.getElementById("category");
+  categorySelect.innerHTML = data.map(cat => `<option>${escapeHTML(cat.name)}</option>`).join("");
 }
 
 async function loadPosts(){
@@ -325,7 +359,7 @@ function renderPosts(posts){
         <div class="tags"><span>${escapeHTML(post.category)}</span><span>Live Post</span></div>
         <div class="post-actions">
           <button class="${liked ? "liked" : ""}" onclick="toggleLike(${post.id})">👍 ${post.real_like_count || 0}</button>
-          <button onclick="location.href='post.html'">Open</button>
+          <button onclick="location.href='post.html?id=${post.id}'">Open</button>
           <button>🔖 Save</button>
           <button>🚩 Report</button>
         </div>
@@ -420,6 +454,7 @@ async function toggleLike(postId){
 
 async function init(){
   await checkSession();
+  await loadCategories();
   await loadPosts();
 }
 

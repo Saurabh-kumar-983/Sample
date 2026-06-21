@@ -15,24 +15,39 @@
     body{
       font-family:Inter,Arial,sans-serif;
       background:
-        radial-gradient(circle at 10% 10%,rgba(255,94,98,.28),transparent 30%),
-        radial-gradient(circle at 85% 5%,rgba(255,199,44,.20),transparent 28%),
-        radial-gradient(circle at 80% 75%,rgba(0,229,255,.22),transparent 30%),
-        linear-gradient(135deg,#080f2c,#151047 45%,#1a0b38);
+        radial-gradient(circle at 15% 20%, rgba(0,229,255,.18), transparent 25%),
+        radial-gradient(circle at 80% 10%, rgba(139,92,246,.18), transparent 25%),
+        radial-gradient(circle at 70% 80%, rgba(0,255,170,.12), transparent 30%),
+        linear-gradient(135deg,#050816,#0a1128 40%,#101935 70%,#161f46);
       color:#f7fbff;
       line-height:1.6;
     }
+
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.22;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size:64px 64px;
+      mask-image:radial-gradient(circle at 50% 20%, black, transparent 72%);
+      z-index:-1;
+    }
+
     a{text-decoration:none;color:inherit}
     .header{position:sticky;top:0;z-index:10;background:rgba(7,12,35,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.12);box-shadow:0 10px 40px rgba(0,0,0,.28)}
     .nav{max-width:1200px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
     .brand{font-weight:900;font-size:28px;letter-spacing:.5px}
-    .brand span{background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);padding:8px 11px;border-radius:15px;margin-right:8px;color:#06101d;box-shadow:0 0 28px rgba(0,229,255,.35)}
+    .brand span{background:linear-gradient(135deg,#00e5ff,#8b5cf6,#00ffaa);padding:8px 11px;border-radius:15px;margin-right:8px;color:#ffffff;box-shadow:0 0 28px rgba(0,229,255,.35)}
     .links{display:flex;gap:18px;align-items:center}
     .links a{color:#d9e5ff;font-weight:800}
     .links a:hover{color:#00e5ff}
     .btn{display:inline-block;padding:12px 18px;border-radius:15px;font-weight:900;border:0;cursor:pointer;transition:.25s}
     .btn:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(0,229,255,.35)}
-    .primary{background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);color:#06101d}
+    .primary{background:linear-gradient(135deg,#00e5ff,#8b5cf6,#00ffaa);color:white}
     .ghost{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07)}
     .section{max-width:1200px;margin:auto;padding:82px 22px}
     .hero{display:grid;grid-template-columns:1.12fr .88fr;gap:38px;align-items:center;min-height:calc(100vh - 80px);animation:fadeUp 1s ease}
@@ -47,9 +62,9 @@
     .stats div,.card,.cat,.feature,.admin-box{background:rgba(255,255,255,.085);border:1px solid rgba(255,255,255,.13);border-radius:28px;padding:22px;box-shadow:0 24px 70px rgba(0,0,0,.28)}
     .stats strong{font-size:28px;display:block;color:#fff}
     .stats span{color:#b9c8e8;font-size:14px}
-    .card{min-height:390px;background:linear-gradient(145deg,rgba(255,207,51,.16),rgba(0,229,255,.16),rgba(139,92,246,.18));position:relative;overflow:hidden;transition:.3s}
+    .card{min-height:390px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(0,229,255,.05),rgba(139,92,246,.08));backdrop-filter:blur(24px);position:relative;overflow:hidden;transition:.3s;border:1px solid rgba(255,255,255,.14)}
     .card:hover{transform:translateY(-8px)}
-    .card:before{content:"";position:absolute;inset:-80px -80px auto auto;width:200px;height:200px;background:rgba(255,207,51,.25);filter:blur(55px);border-radius:50%}
+    .card:before{content:"";position:absolute;inset:-80px -80px auto auto;width:200px;height:200px;background:rgba(0,229,255,.18);filter:blur(55px);border-radius:50%}
     .card-top{display:flex;gap:8px;margin-bottom:22px;position:relative}
     .card-top i{width:12px;height:12px;border-radius:50%;background:#00e5ff}
     .tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
@@ -99,8 +114,8 @@
     .panel-head p{font-size:13px;color:#aebee0}
     .panel-icon{
       width:48px;height:48px;display:grid;place-items:center;border-radius:16px;
-      background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
-      color:#06101d;font-weight:900;box-shadow:0 10px 30px rgba(0,229,255,.25);
+      background:linear-gradient(135deg,#00e5ff,#8b5cf6,#00ffaa);
+      color:#ffffff;font-weight:900;box-shadow:0 10px 30px rgba(0,229,255,.25);
     }
     .trend-list{display:grid;gap:14px}
     .trend-item{
@@ -111,7 +126,7 @@
     .trend-item span{
       width:36px;height:36px;display:grid;place-items:center;border-radius:12px;
       background:linear-gradient(135deg,#00e5ff,#8b5cf6);
-      color:#06101d;font-weight:900;
+      color:#ffffff;font-weight:900;
     }
     .trend-item p{margin:0;color:#eef6ff;font-weight:800}
     .trend-item b{
@@ -126,7 +141,7 @@
     }
     .user-chip span{
       width:48px;height:48px;display:grid;place-items:center;border-radius:50%;
-      background:linear-gradient(135deg,#00e5ff,#8b5cf6);
+      background:linear-gradient(135deg,#00e5ff,#8b5cf6,#00ffaa);
       color:white;font-weight:900;
     }
     .user-chip strong{display:block;color:#ffffff;font-size:14px;word-break:break-all}
@@ -187,8 +202,8 @@
   <div class="card">
     <div class="card-top"><i></i><i></i><i></i></div>
     <h3>Today’s Trending Insight</h3>
-    <p>Real Supabase-powered posts, likes, comments, and categories are now live.</p>
-    <div class="tags"><span>Supabase</span><span>Posts</span><span>Categories</span></div>
+    <p>Real-time posts, likes, comments, and categories are now live.</p>
+    <div class="tags"><span>Live Data</span><span>Posts</span><span>Categories</span></div>
     <div class="chart"><i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:86%"></i><i style="height:70%"></i></div>
   </div>
 </section>
@@ -196,7 +211,7 @@
 <section class="section" id="categories">
   <div class="heading">
     <div class="eyebrow">Knowledge lanes</div>
-    <h2>Dynamic categories from Supabase</h2>
+    <h2>Dynamic Learning Categories</h2>
   </div>
   <div class="grid" id="categoriesGrid">
     <div class="cat"><h3>Loading categories...</h3></div>
@@ -204,7 +219,7 @@
 </section>
 
 <section class="section" id="feed">
-  <div class="heading"><div class="eyebrow">Community feed</div><h2>Live posts from Supabase</h2></div>
+  <div class="heading"><div class="eyebrow">Community feed</div><h2>Community Live Feed</h2></div>
   <input class="search" id="searchInput" onkeyup="searchPosts()" placeholder="Search posts by AI, SQL, Python, dashboard..." />
 
   <div class="feed">
@@ -252,7 +267,7 @@
   <div class="heading">
     <div class="eyebrow">Post creator</div>
     <h2>Create a real post</h2>
-    <p>This form saves your post into Supabase.</p>
+    <p>Create and publish posts instantly.</p>
   </div>
 
   <form class="form" onsubmit="createPost(event)">
@@ -270,17 +285,17 @@
     <div class="admin-box"><strong id="adminPostCount">0</strong><span>Total posts</span></div>
     <div class="admin-box"><strong id="adminCategoryCount">0</strong><span>Total categories</span></div>
     <div class="admin-box"><strong>0</strong><span>Flagged by AI</span></div>
-    <div class="admin-box"><strong>Live</strong><span>Supabase connected</span></div>
+    <div class="admin-box"><strong>Live</strong><span>Backend Live</span></div>
   </div>
 </section>
 
 <section class="section cta" id="join">
   <h2>Build a serious AI and data community, one daily post at a time.</h2>
-  <p>Authentication, posts, likes, comments, and categories are now connected to Supabase.</p><br>
+  <p>Authentication, posts, likes, comments, and categories are fully live.</p><br>
   <a class="btn primary" href="signup.html">Start Posting</a>
 </section>
 
-<footer class="footer">© 2026 DataNest Pro. Supabase-powered community MVP.</footer>
+<footer class="footer">© 2026 DataNest Pro. All rights reserved.</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>

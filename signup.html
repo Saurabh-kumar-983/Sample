@@ -255,7 +255,7 @@
     });
 
     if(error){
-      showMessage("error", error.message);
+      showMessage("error", error.message || JSON.stringify(error));
       signupBtn.disabled = false;
       signupBtn.innerText = "Create DataNest Pro Account";
       return;

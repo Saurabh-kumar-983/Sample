@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profile | DataNest Pro</title>
+<title>Profile Dashboard | DataNest Pro</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,127 +14,105 @@
 body{
   font-family:Inter,Arial,sans-serif;
   background:
-    radial-gradient(circle at top left,rgba(75,225,236,.16),transparent 32%),
-    radial-gradient(circle at top right,rgba(155,123,255,.18),transparent 32%),
-    #06101f;
-  color:#eef6ff;
+    radial-gradient(circle at 10% 10%,rgba(255,94,98,.25),transparent 30%),
+    radial-gradient(circle at 85% 5%,rgba(255,199,44,.18),transparent 28%),
+    radial-gradient(circle at 80% 75%,rgba(0,229,255,.20),transparent 30%),
+    linear-gradient(135deg,#080f2c,#151047 45%,#1a0b38);
+  color:#f7fbff;
   min-height:100vh;
+  line-height:1.6;
 }
 a{text-decoration:none;color:inherit}
-.container{max-width:1180px;margin:auto;padding:30px}
+.container{max-width:1200px;margin:auto;padding:30px 22px 80px}
 .nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:30px;
+  margin-bottom:32px;
 }
-.brand{
-  font-size:28px;
-  font-weight:900;
-}
+.brand{font-size:28px;font-weight:900}
 .brand span{
-  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+  background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
   padding:8px 11px;
-  border-radius:12px;
+  border-radius:15px;
   color:#06101d;
   margin-right:8px;
 }
-.nav-links{
-  display:flex;
-  gap:14px;
-  align-items:center;
-}
+.nav-links{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 .btn{
   display:inline-block;
   padding:12px 18px;
-  border-radius:14px;
+  border-radius:15px;
   font-weight:900;
-  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+  background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
   color:#06101d;
-  text-decoration:none;
   border:0;
   cursor:pointer;
-  transition:.25s;
-}
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 30px rgba(75,225,236,.3);
 }
 .btn-ghost{
-  background:rgba(255,255,255,.08);
+  background:rgba(255,255,255,.09);
   border:1px solid rgba(255,255,255,.14);
   color:#eef6ff;
 }
+.btn-danger{
+  background:linear-gradient(135deg,#ff5e62,#ff9966);
+  color:white;
+}
+.card,.stat,.post-card{
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:26px;
+  box-shadow:0 24px 70px rgba(0,0,0,.28);
+}
+.card{padding:24px}
 .profile-top{
   display:grid;
-  grid-template-columns:320px 1fr;
+  grid-template-columns:330px 1fr;
   gap:24px;
-  margin-bottom:30px;
-}
-.card{
-  background:rgba(255,255,255,.075);
-  border:1px solid rgba(255,255,255,.12);
-  padding:24px;
-  border-radius:24px;
-  box-shadow:0 20px 50px rgba(0,0,0,.25);
+  margin-bottom:24px;
 }
 .avatar{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#4be1ec,#9b7bff);
-  display:grid;
-  place-items:center;
-  font-size:38px;
-  font-weight:900;
-  color:#06101d;
-  margin:auto;
+  width:124px;height:124px;border-radius:50%;
+  background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
+  display:grid;place-items:center;
+  font-size:38px;font-weight:900;color:#06101d;margin:auto;
 }
 .center{text-align:center}
-h1{font-size:38px;margin-bottom:8px}
-h2{font-size:26px;margin-bottom:14px}
-p{color:#b9c7d8}
-.muted{color:#9fb0c5}
+h1{
+  font-size:42px;
+  line-height:1.08;
+  margin-bottom:10px;
+  background:linear-gradient(135deg,#fff,#ffe27a,#00e5ff,#c4b5fd);
+  -webkit-background-clip:text;color:transparent;
+}
+h2{font-size:27px;margin-bottom:14px}
+h3{font-size:21px;margin-bottom:8px}
+p,small{color:#cbd7ee}
 .stats{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:14px;
-  margin-top:18px;
+  margin-top:20px;
 }
-.stat{
-  background:rgba(255,255,255,.06);
-  padding:18px;
-  border-radius:18px;
-  text-align:center;
-}
-.stat strong{
-  display:block;
-  font-size:28px;
-  color:#4be1ec;
-}
+.stat{padding:18px;text-align:center}
+.stat strong{display:block;font-size:30px;color:#00e5ff}
+.stat span{color:#b9c8e8;font-weight:800}
 .grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:1fr 1fr;
   gap:18px;
   margin-top:20px;
 }
 .badge{
   display:inline-block;
-  padding:8px 14px;
+  padding:7px 11px;
   border-radius:999px;
-  background:rgba(75,225,236,.12);
-  border:1px solid rgba(75,225,236,.28);
+  background:rgba(0,229,255,.13);
+  border:1px solid rgba(0,229,255,.35);
+  color:#e9fbff;
+  font-size:13px;
+  font-weight:800;
   margin:5px;
-}
-.activity{
-  margin-top:18px;
-  display:grid;
-  gap:14px;
-}
-.post{
-  padding:18px;
-  border-radius:18px;
-  background:rgba(255,255,255,.06);
 }
 .info-row{
   display:grid;
@@ -144,11 +122,19 @@ p{color:#b9c7d8}
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 .info-row:last-child{border-bottom:0}
+.post-list{display:grid;gap:16px;margin-top:16px}
+.post-card{padding:20px}
+.post-card p{
+  white-space:pre-line;
+  line-height:1.7;
+  color:#d7e4ff;
+}
+.post-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .loading{
-  min-height:60vh;
+  min-height:55vh;
   display:grid;
   place-items:center;
-  color:#b9c7d8;
+  color:#cbd7ee;
   font-size:20px;
 }
 .error-box{
@@ -160,10 +146,14 @@ p{color:#b9c7d8}
 }
 @media(max-width:900px){
   .profile-top,.grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
   .nav{display:block}
-  .nav-links{margin-top:18px;flex-wrap:wrap}
+  .nav-links{margin-top:18px}
+}
+@media(max-width:560px){
   .stats{grid-template-columns:1fr}
   .info-row{grid-template-columns:1fr}
+  h1{font-size:34px}
 }
 </style>
 </head>
@@ -176,14 +166,13 @@ p{color:#b9c7d8}
     <div class="nav-links">
       <a href="index.html" class="btn btn-ghost">Home</a>
       <a href="post.html" class="btn btn-ghost">Posts</a>
-      <a href="admin.html" class="btn btn-ghost">Admin</a>
+      <a href="admin.html" class="btn btn-ghost" id="adminLink" style="display:none;">Admin</a>
       <button class="btn" onclick="logoutUser()">Logout</button>
     </div>
   </div>
 
-  <div id="loading" class="loading">
-    Loading profile...
-  </div>
+  <div id="loading" class="loading">Loading user dashboard...</div>
+  <div id="errorBox" class="error-box" style="display:none;"></div>
 
   <div id="profileContent" style="display:none;">
     <div class="profile-top">
@@ -191,26 +180,18 @@ p{color:#b9c7d8}
         <div class="avatar" id="avatarInitials">--</div>
         <h2 id="profileName" style="margin-top:18px;">User</h2>
         <p id="profileRole">Role</p>
-        <p class="muted" id="profileEmail"></p>
+        <p id="profileEmail"></p>
       </div>
 
       <div class="card">
         <h1>Welcome back 👋</h1>
-        <p>Your real Supabase profile dashboard</p>
+        <p>Your DataNest Pro activity dashboard.</p>
 
         <div class="stats">
-          <div class="stat">
-            <strong id="postCount">0</strong>
-            <span>Posts</span>
-          </div>
-          <div class="stat">
-            <strong>0</strong>
-            <span>Followers</span>
-          </div>
-          <div class="stat">
-            <strong>0</strong>
-            <span>Following</span>
-          </div>
+          <div class="stat"><strong id="postCount">0</strong><span>Your Posts</span></div>
+          <div class="stat"><strong id="likesReceived">0</strong><span>Likes Received</span></div>
+          <div class="stat"><strong id="commentsReceived">0</strong><span>Comments</span></div>
+          <div class="stat"><strong id="accountStatus">Live</strong><span>Status</span></div>
         </div>
       </div>
     </div>
@@ -218,46 +199,29 @@ p{color:#b9c7d8}
     <div class="grid">
       <div class="card">
         <h2>Account Details</h2>
-        <div class="info-row">
-          <strong>Full Name</strong>
-          <span id="infoName">-</span>
-        </div>
-        <div class="info-row">
-          <strong>Email</strong>
-          <span id="infoEmail">-</span>
-        </div>
-        <div class="info-row">
-          <strong>Role</strong>
-          <span id="infoRole">-</span>
-        </div>
-        <div class="info-row">
-          <strong>Joined</strong>
-          <span id="infoJoined">-</span>
-        </div>
+        <div class="info-row"><strong>Full Name</strong><span id="infoName">-</span></div>
+        <div class="info-row"><strong>Email</strong><span id="infoEmail">-</span></div>
+        <div class="info-row"><strong>Role</strong><span id="infoRole">-</span></div>
+        <div class="info-row"><strong>Joined</strong><span id="infoJoined">-</span></div>
       </div>
 
       <div class="card">
-        <h2>Skills</h2>
-        <div style="margin-top:15px;">
-          <span class="badge">AI</span>
-          <span class="badge">SQL</span>
-          <span class="badge">Python</span>
-          <span class="badge">Power BI</span>
-          <span class="badge">Data Analysis</span>
-        </div>
+        <h2>Skills / Focus Areas</h2>
+        <span class="badge">AI</span>
+        <span class="badge">SQL</span>
+        <span class="badge">Python</span>
+        <span class="badge">Power BI</span>
+        <span class="badge">Data Analysis</span>
+        <span class="badge">Machine Learning</span>
       </div>
     </div>
 
     <div class="card" style="margin-top:22px;">
-      <h2>Recent Activities</h2>
-      <div class="activity" id="activityList">
-        <div class="post">No recent activity yet. Create your first post soon.</div>
-      </div>
+      <h2>Your Posts</h2>
+      <p>Manage your own content from here.</p>
+      <div id="myPosts" class="post-list"></div>
     </div>
   </div>
-
-  <div id="errorBox" class="error-box" style="display:none;"></div>
-
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -265,68 +229,103 @@ p{color:#b9c7d8}
 <script>
 const SUPABASE_URL = "https://fthirvblokveageirpwa.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0aGlydmJsb2t2ZWFnZWlycHdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwNTU5MTgsImV4cCI6MjA5NzYzMTkxOH0.gRenoM6MwHLA-idWynTMYbabfrNHzHf32st8zml3cNA";
-
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-const loading = document.getElementById("loading");
-const profileContent = document.getElementById("profileContent");
-const errorBox = document.getElementById("errorBox");
+let currentUser = null;
+let currentProfile = null;
+let myPosts = [];
 
-function getInitials(name, email){
+function escapeHTML(str){
+  return String(str || "").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+}
+
+function getInitials(name,email){
   if(name){
-    return name
-      .split(" ")
-      .map(word => word[0])
-      .join("")
-      .substring(0,2)
-      .toUpperCase();
+    return name.split(" ").map(w=>w[0]).join("").substring(0,2).toUpperCase();
   }
   return email ? email.substring(0,2).toUpperCase() : "US";
 }
 
 function formatDate(dateText){
   if(!dateText) return "-";
-  return new Date(dateText).toLocaleDateString("en-IN", {
-    year:"numeric",
-    month:"short",
-    day:"numeric"
-  });
+  return new Date(dateText).toLocaleDateString("en-IN",{year:"numeric",month:"short",day:"numeric"});
 }
 
-async function loadProfile(){
-  const { data: sessionData, error: sessionError } = await supabaseClient.auth.getSession();
+function showError(message){
+  document.getElementById("loading").style.display = "none";
+  const box = document.getElementById("errorBox");
+  box.style.display = "block";
+  box.innerText = message;
+}
 
-  if(sessionError || !sessionData.session){
+async function loadDashboard(){
+  const { data: sessionData } = await supabaseClient.auth.getSession();
+
+  if(!sessionData.session){
     window.location.href = "login.html";
     return;
   }
 
-  const user = sessionData.session.user;
+  currentUser = sessionData.session.user;
 
   const { data: profile, error: profileError } = await supabaseClient
     .from("profiles")
     .select("*")
-    .eq("id", user.id)
+    .eq("id", currentUser.id)
     .single();
 
-  if(profileError){
-    loading.style.display = "none";
-    errorBox.style.display = "block";
-    errorBox.innerText = "Unable to load profile: " + profileError.message;
+  if(profileError || !profile){
+    showError("Unable to load profile.");
     return;
   }
 
-  const { count } = await supabaseClient
+  currentProfile = profile;
+
+  if(profile.role === "admin"){
+    document.getElementById("adminLink").style.display = "inline-block";
+  }
+
+  const { data: posts } = await supabaseClient
     .from("posts")
-    .select("*", { count:"exact", head:true })
-    .eq("user_id", user.id);
+    .select("*")
+    .eq("user_id", currentUser.id)
+    .order("created_at",{ascending:false});
 
-  const name = profile.full_name || user.user_metadata?.full_name || "DataNest User";
-  const email = profile.email || user.email;
-  const role = profile.role || user.user_metadata?.role || "user";
-  const joined = profile.created_at || user.created_at;
+  myPosts = posts || [];
 
-  document.getElementById("avatarInitials").innerText = getInitials(name, email);
+  const postIds = myPosts.map(p => p.id);
+
+  let likesReceivedCount = 0;
+  let commentsReceivedCount = 0;
+
+  if(postIds.length){
+    const { count: likesCount } = await supabaseClient
+      .from("likes")
+      .select("*",{count:"exact",head:true})
+      .in("post_id",postIds);
+
+    const { count: commentsCount } = await supabaseClient
+      .from("comments")
+      .select("*",{count:"exact",head:true})
+      .in("post_id",postIds);
+
+    likesReceivedCount = likesCount || 0;
+    commentsReceivedCount = commentsCount || 0;
+  }
+
+  renderProfile(profile, myPosts.length, likesReceivedCount, commentsReceivedCount);
+  renderMyPosts(myPosts);
+
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("profileContent").style.display = "block";
+}
+
+function renderProfile(profile, postCount, likesReceived, commentsReceived){
+  const name = profile.full_name || currentUser.user_metadata?.full_name || "DataNest User";
+  const email = profile.email || currentUser.email;
+  const role = profile.role || "user";
+
+  document.getElementById("avatarInitials").innerText = getInitials(name,email);
   document.getElementById("profileName").innerText = name;
   document.getElementById("profileRole").innerText = role;
   document.getElementById("profileEmail").innerText = email;
@@ -334,11 +333,56 @@ async function loadProfile(){
   document.getElementById("infoName").innerText = name;
   document.getElementById("infoEmail").innerText = email;
   document.getElementById("infoRole").innerText = role;
-  document.getElementById("infoJoined").innerText = formatDate(joined);
-  document.getElementById("postCount").innerText = count || 0;
+  document.getElementById("infoJoined").innerText = formatDate(profile.created_at);
 
-  loading.style.display = "none";
-  profileContent.style.display = "block";
+  document.getElementById("postCount").innerText = postCount;
+  document.getElementById("likesReceived").innerText = likesReceived;
+  document.getElementById("commentsReceived").innerText = commentsReceived;
+}
+
+function renderMyPosts(posts){
+  const box = document.getElementById("myPosts");
+
+  if(!posts.length){
+    box.innerHTML = `<div class="post-card"><h3>No posts yet</h3><p>Create your first post from homepage.</p><br><a class="btn" href="index.html#create">Create Post</a></div>`;
+    return;
+  }
+
+  box.innerHTML = posts.map(post => `
+    <div class="post-card">
+      <h3>${escapeHTML(post.title)}</h3>
+      <p>${escapeHTML(post.content)}</p>
+      <div>
+        <span class="badge">${escapeHTML(post.category)}</span>
+        <span class="badge">${formatDate(post.created_at)}</span>
+      </div>
+      <div class="post-actions">
+        <a class="btn btn-ghost" href="post.html?id=${post.id}">Open</a>
+        <button class="btn btn-danger" onclick="deleteOwnPost(${post.id})">Delete</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+async function deleteOwnPost(postId){
+  if(!confirm("Delete this post? This will also remove likes and comments.")) return;
+
+  await supabaseClient.from("likes").delete().eq("post_id",postId);
+  await supabaseClient.from("comments").delete().eq("post_id",postId);
+
+  const { error } = await supabaseClient
+    .from("posts")
+    .delete()
+    .eq("id",postId)
+    .eq("user_id",currentUser.id);
+
+  if(error){
+    alert(error.message);
+    return;
+  }
+
+  alert("Post deleted successfully.");
+  location.reload();
 }
 
 async function logoutUser(){
@@ -346,7 +390,7 @@ async function logoutUser(){
   window.location.href = "login.html";
 }
 
-loadProfile();
+loadDashboard();
 </script>
 
 </body>

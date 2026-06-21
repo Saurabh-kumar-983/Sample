@@ -23,75 +23,37 @@
       line-height:1.6;
     }
     a{text-decoration:none;color:inherit}
-    .header{
-      position:sticky;top:0;z-index:10;
-      background:rgba(7,12,35,.78);
-      backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(255,255,255,.12);
-      box-shadow:0 10px 40px rgba(0,0,0,.28);
-    }
-    .nav{
-      max-width:1200px;margin:auto;padding:16px 22px;
-      display:flex;align-items:center;justify-content:space-between;
-    }
+    .header{position:sticky;top:0;z-index:10;background:rgba(7,12,35,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.12);box-shadow:0 10px 40px rgba(0,0,0,.28)}
+    .nav{max-width:1200px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
     .brand{font-weight:900;font-size:28px;letter-spacing:.5px}
-    .brand span{
-      background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
-      padding:8px 11px;border-radius:15px;margin-right:8px;color:#06101d;
-      box-shadow:0 0 28px rgba(0,229,255,.35);
-    }
+    .brand span{background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);padding:8px 11px;border-radius:15px;margin-right:8px;color:#06101d;box-shadow:0 0 28px rgba(0,229,255,.35)}
     .links{display:flex;gap:18px;align-items:center}
     .links a{color:#d9e5ff;font-weight:800}
     .links a:hover{color:#00e5ff}
-    .btn{
-      display:inline-block;padding:12px 18px;border-radius:15px;
-      font-weight:900;border:0;cursor:pointer;transition:.25s;
-    }
+    .btn{display:inline-block;padding:12px 18px;border-radius:15px;font-weight:900;border:0;cursor:pointer;transition:.25s}
     .btn:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(0,229,255,.35)}
     .primary{background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);color:#06101d}
     .ghost{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07)}
     .section{max-width:1200px;margin:auto;padding:82px 22px}
-    .hero{
-      display:grid;grid-template-columns:1.12fr .88fr;gap:38px;align-items:center;
-      min-height:calc(100vh - 80px);animation:fadeUp 1s ease;
-    }
+    .hero{display:grid;grid-template-columns:1.12fr .88fr;gap:38px;align-items:center;min-height:calc(100vh - 80px);animation:fadeUp 1s ease}
     .eyebrow{color:#00e5ff;font-weight:900;text-transform:uppercase;font-size:13px;letter-spacing:1.6px;margin-bottom:14px}
-    h1{
-      font-size:64px;line-height:1.02;margin-bottom:22px;
-      background:linear-gradient(135deg,#fff,#ffe27a,#00e5ff,#c4b5fd);
-      -webkit-background-clip:text;color:transparent;
-    }
+    h1{font-size:64px;line-height:1.02;margin-bottom:22px;background:linear-gradient(135deg,#fff,#ffe27a,#00e5ff,#c4b5fd);-webkit-background-clip:text;color:transparent}
     h2{font-size:40px;line-height:1.15;margin-bottom:16px}
     h3{font-size:22px;margin-bottom:10px}
     p{color:#cbd7ee}
     .hero p{font-size:18px;max-width:700px}
     .actions{display:flex;gap:14px;margin:30px 0;flex-wrap:wrap}
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
-    .stats div,.card,.cat,.feature,.admin-box{
-      background:rgba(255,255,255,.085);
-      border:1px solid rgba(255,255,255,.13);
-      border-radius:28px;padding:22px;
-      box-shadow:0 24px 70px rgba(0,0,0,.28);
-    }
+    .stats div,.card,.cat,.feature,.admin-box{background:rgba(255,255,255,.085);border:1px solid rgba(255,255,255,.13);border-radius:28px;padding:22px;box-shadow:0 24px 70px rgba(0,0,0,.28)}
     .stats strong{font-size:28px;display:block;color:#fff}
     .stats span{color:#b9c8e8;font-size:14px}
-    .card{
-      min-height:390px;
-      background:linear-gradient(145deg,rgba(255,207,51,.16),rgba(0,229,255,.16),rgba(139,92,246,.18));
-      position:relative;overflow:hidden;transition:.3s;
-    }
+    .card{min-height:390px;background:linear-gradient(145deg,rgba(255,207,51,.16),rgba(0,229,255,.16),rgba(139,92,246,.18));position:relative;overflow:hidden;transition:.3s}
     .card:hover{transform:translateY(-8px)}
-    .card:before{
-      content:"";position:absolute;inset:-80px -80px auto auto;width:200px;height:200px;
-      background:rgba(255,207,51,.25);filter:blur(55px);border-radius:50%;
-    }
+    .card:before{content:"";position:absolute;inset:-80px -80px auto auto;width:200px;height:200px;background:rgba(255,207,51,.25);filter:blur(55px);border-radius:50%}
     .card-top{display:flex;gap:8px;margin-bottom:22px;position:relative}
     .card-top i{width:12px;height:12px;border-radius:50%;background:#00e5ff}
     .tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-    .tags span,.badge{
-      background:rgba(0,229,255,.13);border:1px solid rgba(0,229,255,.35);
-      padding:7px 11px;border-radius:999px;color:#e9fbff;font-size:13px;font-weight:800;
-    }
+    .tags span,.badge{background:rgba(0,229,255,.13);border:1px solid rgba(0,229,255,.35);padding:7px 11px;border-radius:999px;color:#e9fbff;font-size:13px;font-weight:800}
     .chart{height:120px;display:flex;align-items:end;gap:12px;margin:25px 0}
     .chart i{flex:1;background:linear-gradient(#ffcf33,#00e5ff,#8b5cf6);border-radius:12px 12px 4px 4px;animation:rise 1.2s ease both}
     @keyframes rise{from{height:5%}}
@@ -102,48 +64,19 @@
     .cat:hover,.post:hover,.feature:hover{transform:translateY(-6px);border-color:rgba(255,207,51,.55);background:rgba(255,255,255,.11)}
     .cat b{font-size:34px;display:block;margin-bottom:10px}
     .feed{display:grid;grid-template-columns:1fr 340px;gap:22px}
-    .search,input,select,textarea{
-      width:100%;padding:15px 16px;border-radius:17px;border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.09);color:white;font-size:15px;
-    }
+    .search,input,select,textarea{width:100%;padding:15px 16px;border-radius:17px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.09);color:white;font-size:15px}
     .search{margin-bottom:18px}
     option{color:#111}
-
-    .post{
-      margin-bottom:18px;
-      padding:24px;
-      border-radius:24px;
-      background:rgba(255,255,255,.09);
-      border:1px solid rgba(255,255,255,.13);
-      box-shadow:0 18px 55px rgba(0,0,0,.25);
-    }
-    .post h3{
-      font-size:24px;
-      line-height:1.3;
-      margin-bottom:10px;
-      color:#ffffff;
-    }
-    .post-content{
-      white-space:pre-line;
-      line-height:1.75;
-      margin-top:10px;
-      color:#d7e4ff;
-      font-size:15.5px;
-    }
-
+    .post{margin-bottom:18px;padding:24px;border-radius:24px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);box-shadow:0 18px 55px rgba(0,0,0,.25)}
+    .post h3{font-size:24px;line-height:1.3;margin-bottom:10px;color:#ffffff}
+    .post-content{white-space:pre-line;line-height:1.75;margin-top:10px;color:#d7e4ff;font-size:15.5px}
     .author{display:flex;gap:12px;align-items:center;margin-bottom:14px}
-    .avatar{
-      width:44px;height:44px;border-radius:50%;
-      background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
-      display:grid;place-items:center;color:#06101d;font-weight:900;
-    }
+    .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);display:grid;place-items:center;color:#06101d;font-weight:900}
     .author small{display:block;color:#aebee0}
     .post-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-    .post-actions button{
-      background:rgba(255,255,255,.09);color:#eef6ff;border:1px solid rgba(255,255,255,.14);
-      border-radius:999px;padding:8px 12px;cursor:pointer;font-weight:800;
-    }
+    .post-actions button{background:rgba(255,255,255,.09);color:#eef6ff;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:8px 12px;cursor:pointer;font-weight:800}
     .post-actions button:hover{background:rgba(0,229,255,.16)}
+    .liked{background:linear-gradient(135deg,#ffcf33,#00e5ff)!important;color:#06101d!important}
     .side li{margin:10px 0;color:#d6e6f7}
     .form{display:grid;gap:14px;max-width:780px}
     .msg{padding:12px 14px;border-radius:14px;display:none;font-size:14px;font-weight:800}
@@ -209,8 +142,8 @@
   <div class="card">
     <div class="card-top"><i></i><i></i><i></i></div>
     <h3>Today’s Trending Insight</h3>
-    <p>Real Supabase-powered posts are now live. Your homepage is no longer just decoration, it has a tiny engine room humming under the floorboards.</p>
-    <div class="tags"><span>Supabase</span><span>Frontend</span><span>Community</span></div>
+    <p>Real Supabase-powered posts and likes are now live. The community engine is humming.</p>
+    <div class="tags"><span>Supabase</span><span>Posts</span><span>Likes</span></div>
     <div class="chart"><i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:86%"></i><i style="height:70%"></i></div>
   </div>
 </section>
@@ -249,7 +182,7 @@
   <div class="heading">
     <div class="eyebrow">Post creator</div>
     <h2>Create a real post</h2>
-    <p>This form now saves your post into Supabase.</p>
+    <p>This form saves your post into Supabase.</p>
   </div>
 
   <form class="form" onsubmit="createPost(event)">
@@ -258,12 +191,7 @@
       <option>AI</option><option>Data Analysis</option><option>SQL</option><option>Python</option>
       <option>Machine Learning</option><option>Power BI</option><option>Tableau</option>
     </select>
-    <textarea id="content" rows="7" placeholder="Share your tip, project, dataset, or learning...
-
-Example:
-1. Problem statement
-2. What you tried
-3. Final insight or solution" required></textarea>
+    <textarea id="content" rows="7" placeholder="Share your tip, project, dataset, or learning..." required></textarea>
     <div id="messageBox" class="msg"></div>
     <button id="postBtn" class="btn primary" type="submit">Publish Post</button>
   </form>
@@ -281,7 +209,7 @@ Example:
 
 <section class="section cta" id="join">
   <h2>Build a serious AI and data community, one daily post at a time.</h2>
-  <p>Authentication and post creation are now connected to Supabase.</p><br>
+  <p>Authentication, posts, and likes are now connected to Supabase.</p><br>
   <a class="btn primary" href="signup.html">Start Posting</a>
 </section>
 
@@ -295,6 +223,7 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 let currentUser = null;
 let allPosts = [];
+let userLikedPostIds = [];
 
 function toggleMenu(){document.getElementById("links").classList.toggle("show")}
 
@@ -338,7 +267,7 @@ async function logoutUser(e){
 }
 
 async function loadPosts(){
-  const { data, error } = await supabaseClient
+  const { data: posts, error } = await supabaseClient
     .from("posts")
     .select("*")
     .order("created_at",{ascending:false});
@@ -348,7 +277,25 @@ async function loadPosts(){
     return;
   }
 
-  allPosts = data || [];
+  const { data: likesData } = await supabaseClient
+    .from("likes")
+    .select("post_id,user_id");
+
+  const likeCounts = {};
+  userLikedPostIds = [];
+
+  (likesData || []).forEach(like => {
+    likeCounts[like.post_id] = (likeCounts[like.post_id] || 0) + 1;
+    if(currentUser && like.user_id === currentUser.id){
+      userLikedPostIds.push(like.post_id);
+    }
+  });
+
+  allPosts = (posts || []).map(post => ({
+    ...post,
+    real_like_count: likeCounts[post.id] || 0
+  }));
+
   renderPosts(allPosts);
   document.getElementById("totalPosts").innerText = allPosts.length;
   document.getElementById("adminPostCount").innerText = allPosts.length;
@@ -362,26 +309,29 @@ function renderPosts(posts){
     return;
   }
 
-  list.innerHTML = posts.map(post => `
-    <article class="post" data-search="${escapeHTML((post.title || "") + " " + (post.category || "") + " " + (post.content || ""))}">
-      <div class="author">
-        <span class="avatar">${getInitials("", post.user_id)}</span>
-        <div>
-          <strong>Community Member</strong>
-          <small>${escapeHTML(post.category)} • ${new Date(post.created_at).toLocaleString("en-IN")}</small>
+  list.innerHTML = posts.map(post => {
+    const liked = userLikedPostIds.includes(post.id);
+    return `
+      <article class="post" data-search="${escapeHTML((post.title || "") + " " + (post.category || "") + " " + (post.content || ""))}">
+        <div class="author">
+          <span class="avatar">${getInitials("", post.user_id)}</span>
+          <div>
+            <strong>Community Member</strong>
+            <small>${escapeHTML(post.category)} • ${new Date(post.created_at).toLocaleString("en-IN")}</small>
+          </div>
         </div>
-      </div>
-      <h3>${escapeHTML(post.title)}</h3>
-      <p class="post-content">${escapeHTML(post.content)}</p>
-      <div class="tags"><span>${escapeHTML(post.category)}</span><span>Live Post</span></div>
-      <div class="post-actions">
-        <button onclick="alert('Likes will be connected next')">👍 ${post.likes_count || 0}</button>
-        <button onclick="location.href='post.html'">Open</button>
-        <button>🔖 Save</button>
-        <button>🚩 Report</button>
-      </div>
-    </article>
-  `).join("");
+        <h3>${escapeHTML(post.title)}</h3>
+        <p class="post-content">${escapeHTML(post.content)}</p>
+        <div class="tags"><span>${escapeHTML(post.category)}</span><span>Live Post</span></div>
+        <div class="post-actions">
+          <button class="${liked ? "liked" : ""}" onclick="toggleLike(${post.id})">👍 ${post.real_like_count || 0}</button>
+          <button onclick="location.href='post.html'">Open</button>
+          <button>🔖 Save</button>
+          <button>🚩 Report</button>
+        </div>
+      </article>
+    `;
+  }).join("");
 }
 
 function searchPosts(){
@@ -431,10 +381,48 @@ async function createPost(event){
   location.href="#feed";
 }
 
+async function toggleLike(postId){
+  if(!currentUser){
+    alert("Please login first to like posts.");
+    window.location.href = "login.html";
+    return;
+  }
+
+  const liked = userLikedPostIds.includes(postId);
+
+  if(liked){
+    const { error } = await supabaseClient
+      .from("likes")
+      .delete()
+      .eq("post_id", postId)
+      .eq("user_id", currentUser.id);
+
+    if(error){
+      alert(error.message);
+      return;
+    }
+  }else{
+    const { error } = await supabaseClient
+      .from("likes")
+      .insert({
+        post_id: postId,
+        user_id: currentUser.id
+      });
+
+    if(error){
+      alert(error.message);
+      return;
+    }
+  }
+
+  await loadPosts();
+}
+
 async function init(){
   await checkSession();
   await loadPosts();
 }
+
 init();
 </script>
 </body>

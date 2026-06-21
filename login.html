@@ -120,6 +120,28 @@
       transform:translateY(-3px);
       box-shadow:0 10px 30px rgba(75,225,236,.3);
     }
+    .btn:disabled{
+      cursor:not-allowed;
+      opacity:.75;
+      transform:none;
+    }
+    .msg{
+      padding:12px 14px;
+      border-radius:14px;
+      display:none;
+      font-size:14px;
+      font-weight:700;
+    }
+    .success{
+      background:rgba(75,225,140,.14);
+      border:1px solid rgba(75,225,140,.28);
+      color:#bdffd6;
+    }
+    .error{
+      background:rgba(255,90,90,.14);
+      border:1px solid rgba(255,90,90,.28);
+      color:#ffb7b7;
+    }
     .footer-links{
       margin-top:18px;
       text-align:center;
@@ -163,25 +185,27 @@
 
     <section class="card">
       <h2>Login</h2>
-      <p>This is a frontend demo. Real login will work after backend authentication is connected.</p>
+      <p>Real login is connected with Supabase authentication.</p>
 
-      <form class="form" onsubmit="demoLogin(event)">
+      <form class="form" onsubmit="loginUser(event)">
         <div>
           <label>Email address</label>
-          <input type="email" placeholder="you@example.com" required />
+          <input id="email" type="email" placeholder="you@example.com" required />
         </div>
 
         <div>
           <label>Password</label>
-          <input type="password" placeholder="Enter your password" required />
+          <input id="password" type="password" placeholder="Enter your password" required />
         </div>
 
         <div class="row">
-          <span><input type="checkbox" style="width:auto"> Remember me</span>
+          <span><input id="rememberMe" type="checkbox" style="width:auto"> Remember me</span>
           <a href="#">Forgot password?</a>
         </div>
 
-        <button class="btn" type="submit">Login to DataNest Pro</button>
+        <div id="messageBox" class="msg"></div>
+
+        <button id="loginBtn" class="btn" type="submit">Login to DataNest Pro</button>
       </form>
 
       <div class="footer-links">
@@ -190,12 +214,60 @@
     </section>
   </main>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-  function demoLogin(event){
-    event.preventDefault();
-    alert("Demo login successful. Backend will be connected in Phase 3.");
-    window.location.href = "profile.html";
+  const SUPABASE_URL = "https://fthirvblokveageirpwa.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0aGlydmJsb2t2ZWFnZWlycHdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwNTU5MTgsImV4cCI6MjA5NzYzMTkxOH0.gRenoM6MwHLA-idWynTMYbabfrNHzHf32st8zml3cNA";
+
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const messageBox = document.getElementById("messageBox");
+  const loginBtn = document.getElementById("loginBtn");
+
+  function showMessage(type, message){
+    messageBox.className = "msg " + type;
+    messageBox.style.display = "block";
+    messageBox.innerText = message;
   }
+
+  async function loginUser(event){
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    loginBtn.disabled = true;
+    loginBtn.innerText = "Logging in...";
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+    if(error){
+      showMessage("error", error.message);
+      loginBtn.disabled = false;
+      loginBtn.innerText = "Login to DataNest Pro";
+      return;
+    }
+
+    showMessage("success", "Login successful. Redirecting to profile...");
+
+    setTimeout(() => {
+      window.location.href = "profile.html";
+    }, 1200);
+  }
+
+  async function checkExistingSession(){
+    const { data } = await supabaseClient.auth.getSession();
+
+    if(data.session){
+      window.location.href = "profile.html";
+    }
+  }
+
+  checkExistingSession();
 </script>
 
 </body>

@@ -24,40 +24,20 @@ body{
 }
 a{text-decoration:none;color:inherit}
 .container{max-width:1200px;margin:auto;padding:30px 22px 80px}
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:32px;
-}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px}
 .brand{font-size:28px;font-weight:900}
 .brand span{
   background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
-  padding:8px 11px;
-  border-radius:15px;
-  color:#06101d;
-  margin-right:8px;
+  padding:8px 11px;border-radius:15px;color:#06101d;margin-right:8px;
 }
 .nav-links{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 .btn{
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:15px;
-  font-weight:900;
+  display:inline-block;padding:12px 18px;border-radius:15px;font-weight:900;
   background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
-  color:#06101d;
-  border:0;
-  cursor:pointer;
+  color:#06101d;border:0;cursor:pointer;
 }
-.btn-ghost{
-  background:rgba(255,255,255,.09);
-  border:1px solid rgba(255,255,255,.14);
-  color:#eef6ff;
-}
-.btn-danger{
-  background:linear-gradient(135deg,#ff5e62,#ff9966);
-  color:white;
-}
+.btn-ghost{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);color:#eef6ff}
+.btn-danger{background:linear-gradient(135deg,#ff5e62,#ff9966);color:white}
 .card,.stat,.post-card{
   background:rgba(255,255,255,.09);
   border:1px solid rgba(255,255,255,.13);
@@ -65,84 +45,41 @@ a{text-decoration:none;color:inherit}
   box-shadow:0 24px 70px rgba(0,0,0,.28);
 }
 .card{padding:24px}
-.profile-top{
-  display:grid;
-  grid-template-columns:330px 1fr;
-  gap:24px;
-  margin-bottom:24px;
-}
+.profile-top{display:grid;grid-template-columns:330px 1fr;gap:24px;margin-bottom:24px}
 .avatar{
   width:124px;height:124px;border-radius:50%;
   background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
-  display:grid;place-items:center;
-  font-size:38px;font-weight:900;color:#06101d;margin:auto;
+  display:grid;place-items:center;font-size:38px;font-weight:900;color:#06101d;margin:auto;
 }
 .center{text-align:center}
 h1{
-  font-size:42px;
-  line-height:1.08;
-  margin-bottom:10px;
+  font-size:42px;line-height:1.08;margin-bottom:10px;
   background:linear-gradient(135deg,#fff,#ffe27a,#00e5ff,#c4b5fd);
   -webkit-background-clip:text;color:transparent;
 }
 h2{font-size:27px;margin-bottom:14px}
 h3{font-size:21px;margin-bottom:8px}
 p,small{color:#cbd7ee}
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  margin-top:20px;
-}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
 .stat{padding:18px;text-align:center}
 .stat strong{display:block;font-size:30px;color:#00e5ff}
 .stat span{color:#b9c8e8;font-weight:800}
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-  margin-top:20px;
-}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
 .badge{
-  display:inline-block;
-  padding:7px 11px;
-  border-radius:999px;
-  background:rgba(0,229,255,.13);
-  border:1px solid rgba(0,229,255,.35);
-  color:#e9fbff;
-  font-size:13px;
-  font-weight:800;
-  margin:5px;
+  display:inline-block;padding:7px 11px;border-radius:999px;
+  background:rgba(0,229,255,.13);border:1px solid rgba(0,229,255,.35);
+  color:#e9fbff;font-size:13px;font-weight:800;margin:5px;
 }
-.info-row{
-  display:grid;
-  grid-template-columns:160px 1fr;
-  gap:12px;
-  padding:14px 0;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
+.info-row{display:grid;grid-template-columns:160px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
 .info-row:last-child{border-bottom:0}
 .post-list{display:grid;gap:16px;margin-top:16px}
 .post-card{padding:20px}
-.post-card p{
-  white-space:pre-line;
-  line-height:1.7;
-  color:#d7e4ff;
-}
+.post-card p{white-space:pre-line;line-height:1.7;color:#d7e4ff}
 .post-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.loading{
-  min-height:55vh;
-  display:grid;
-  place-items:center;
-  color:#cbd7ee;
-  font-size:20px;
-}
+.loading{min-height:55vh;display:grid;place-items:center;color:#cbd7ee;font-size:20px}
 .error-box{
-  background:rgba(255,90,90,.14);
-  color:#ffb7b7;
-  border:1px solid rgba(255,90,90,.28);
-  border-radius:18px;
-  padding:18px;
+  background:rgba(255,90,90,.14);color:#ffb7b7;
+  border:1px solid rgba(255,90,90,.28);border-radius:18px;padding:18px;
 }
 @media(max-width:900px){
   .profile-top,.grid{grid-template-columns:1fr}
@@ -157,6 +94,7 @@ p,small{color:#cbd7ee}
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -222,6 +160,7 @@ p,small{color:#cbd7ee}
       <div id="myPosts" class="post-list"></div>
     </div>
   </div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -292,7 +231,6 @@ async function loadDashboard(){
     .order("created_at",{ascending:false});
 
   myPosts = posts || [];
-
   const postIds = myPosts.map(p => p.id);
 
   let likesReceivedCount = 0;
@@ -358,10 +296,47 @@ function renderMyPosts(posts){
       </div>
       <div class="post-actions">
         <a class="btn btn-ghost" href="post.html?id=${post.id}">Open</a>
+        <button class="btn" onclick="editPost(${post.id})">Edit</button>
         <button class="btn btn-danger" onclick="deleteOwnPost(${post.id})">Delete</button>
       </div>
     </div>
   `).join("");
+}
+
+async function editPost(postId){
+  const post = myPosts.find(p => p.id === postId);
+
+  if(!post){
+    alert("Post not found.");
+    return;
+  }
+
+  const newTitle = prompt("Edit Title:", post.title);
+  if(newTitle === null) return;
+
+  const newCategory = prompt("Edit Category:", post.category);
+  if(newCategory === null) return;
+
+  const newContent = prompt("Edit Content:", post.content);
+  if(newContent === null) return;
+
+  const { error } = await supabaseClient
+    .from("posts")
+    .update({
+      title: newTitle.trim(),
+      category: newCategory.trim(),
+      content: newContent.trim()
+    })
+    .eq("id", postId)
+    .eq("user_id", currentUser.id);
+
+  if(error){
+    alert(error.message);
+    return;
+  }
+
+  alert("Post updated successfully.");
+  location.reload();
 }
 
 async function deleteOwnPost(postId){

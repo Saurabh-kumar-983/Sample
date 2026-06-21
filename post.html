@@ -11,24 +11,24 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
   font-family:Inter,Arial,sans-serif;
   background:
-    radial-gradient(circle at top left,rgba(75,225,236,.15),transparent 30%),
-    radial-gradient(circle at top right,rgba(155,123,255,.18),transparent 32%),
-    #06101f;
-  color:#eef6ff;
+    radial-gradient(circle at 10% 10%,rgba(255,94,98,.25),transparent 30%),
+    radial-gradient(circle at 85% 5%,rgba(255,199,44,.18),transparent 28%),
+    radial-gradient(circle at 80% 75%,rgba(0,229,255,.20),transparent 30%),
+    linear-gradient(135deg,#080f2c,#151047 45%,#1a0b38);
+  color:#f7fbff;
   line-height:1.6;
 }
 a{text-decoration:none;color:inherit}
 .header{
   position:sticky;
   top:0;
-  background:rgba(5,15,30,.78);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.10);
   z-index:10;
+  background:rgba(7,12,35,.78);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
 .nav{
   max-width:1180px;
@@ -43,34 +43,24 @@ a{text-decoration:none;color:inherit}
   font-weight:900;
 }
 .brand span{
-  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+  background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
   padding:8px 11px;
-  border-radius:14px;
+  border-radius:15px;
   color:#06101d;
   margin-right:8px;
 }
-.links{
-  display:flex;
-  gap:18px;
-  align-items:center;
-}
-.links a{
-  color:#c9d8e8;
-  font-weight:700;
-}
-.links a:hover{color:#4be1ec}
+.links{display:flex;gap:18px;align-items:center}
+.links a{color:#d9e5ff;font-weight:800}
+.links a:hover{color:#00e5ff}
 .btn{
   display:inline-block;
   padding:12px 18px;
-  border-radius:14px;
+  border-radius:15px;
   font-weight:900;
-  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+  border:0;
+  cursor:pointer;
+  background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
   color:#06101d;
-  transition:.25s;
-}
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 30px rgba(75,225,236,.3);
 }
 .container{
   max-width:1180px;
@@ -84,11 +74,11 @@ a{text-decoration:none;color:inherit}
   align-items:start;
 }
 .card{
-  background:rgba(255,255,255,.075);
-  border:1px solid rgba(255,255,255,.11);
-  border-radius:26px;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:28px;
   padding:26px;
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
+  box-shadow:0 24px 70px rgba(0,0,0,.28);
 }
 .author{
   display:flex;
@@ -100,24 +90,29 @@ a{text-decoration:none;color:inherit}
   width:52px;
   height:52px;
   border-radius:50%;
-  background:linear-gradient(135deg,#4be1ec,#9b7bff);
+  background:linear-gradient(135deg,#ffcf33,#00e5ff,#8b5cf6);
   display:grid;
   place-items:center;
   color:#06101d;
   font-weight:900;
 }
-small{color:#8fa2b8}
+small{color:#aebee0}
 h1{
   font-size:46px;
   line-height:1.08;
   margin-bottom:18px;
-  background:linear-gradient(135deg,#fff,#bcecff,#bda8ff);
+  background:linear-gradient(135deg,#fff,#ffe27a,#00e5ff,#c4b5fd);
   -webkit-background-clip:text;
   color:transparent;
 }
 h2{font-size:26px;margin-bottom:14px}
 h3{font-size:20px;margin-bottom:8px}
-p{color:#b9c7d8;margin-bottom:16px}
+p{color:#cbd7ee;margin-bottom:16px}
+.post-content{
+  white-space:pre-line;
+  line-height:1.75;
+  color:#d7e4ff;
+}
 .tags{
   display:flex;
   flex-wrap:wrap;
@@ -125,19 +120,19 @@ p{color:#b9c7d8;margin-bottom:16px}
   margin:18px 0;
 }
 .tags span{
-  background:rgba(75,225,236,.13);
-  border:1px solid rgba(75,225,236,.3);
+  background:rgba(0,229,255,.13);
+  border:1px solid rgba(0,229,255,.35);
   padding:7px 11px;
   border-radius:999px;
-  color:#dffcff;
+  color:#e9fbff;
   font-size:13px;
   font-weight:800;
 }
 .cover{
-  height:260px;
+  min-height:220px;
   border-radius:24px;
   background:
-    linear-gradient(135deg,rgba(75,225,236,.20),rgba(155,123,255,.20)),
+    linear-gradient(135deg,rgba(255,207,51,.18),rgba(0,229,255,.18),rgba(139,92,246,.20)),
     repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px);
   margin:24px 0;
   display:grid;
@@ -151,45 +146,61 @@ p{color:#b9c7d8;margin-bottom:16px}
   margin:24px 0;
 }
 .actions button{
-  background:rgba(255,255,255,.08);
-  color:#dfefff;
-  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.09);
+  color:#eef6ff;
+  border:1px solid rgba(255,255,255,.14);
   border-radius:999px;
   padding:10px 14px;
   cursor:pointer;
-  font-weight:700;
+  font-weight:800;
 }
-.actions button:hover{background:rgba(75,225,236,.14)}
+.actions button:hover{background:rgba(0,229,255,.16)}
 .comment{
   padding:16px;
   border-radius:18px;
-  background:rgba(255,255,255,.06);
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.10);
   margin-bottom:12px;
 }
 textarea{
   width:100%;
-  min-height:110px;
+  min-height:120px;
   padding:15px;
   border-radius:18px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.09);
   color:white;
   resize:vertical;
   margin-bottom:12px;
+  font-family:Inter,Arial,sans-serif;
 }
-.side-list{
-  display:grid;
-  gap:14px;
+.msg{
+  display:none;
+  margin-bottom:12px;
+  padding:12px 14px;
+  border-radius:14px;
+  font-weight:800;
 }
+.success{
+  background:rgba(75,225,140,.14);
+  border:1px solid rgba(75,225,140,.28);
+  color:#bdffd6;
+}
+.error{
+  background:rgba(255,90,90,.14);
+  border:1px solid rgba(255,90,90,.28);
+  color:#ffb7b7;
+}
+.side-list{display:grid;gap:14px}
 .side-item{
   padding:16px;
   border-radius:18px;
-  background:rgba(255,255,255,.06);
+  background:rgba(255,255,255,.07);
   transition:.25s;
 }
 .side-item:hover{
   transform:translateY(-4px);
-  background:rgba(255,255,255,.09);
+  background:rgba(255,255,255,.11);
 }
 .metric{
   display:grid;
@@ -198,15 +209,22 @@ textarea{
   margin-top:14px;
 }
 .metric div{
-  background:rgba(255,255,255,.06);
+  background:rgba(255,255,255,.07);
   border-radius:18px;
   padding:16px;
   text-align:center;
 }
 .metric strong{
   display:block;
-  color:#4be1ec;
+  color:#00e5ff;
   font-size:26px;
+}
+.loading{
+  min-height:50vh;
+  display:grid;
+  place-items:center;
+  color:#cbd7ee;
+  font-size:20px;
 }
 @media(max-width:900px){
   .layout{grid-template-columns:1fr}
@@ -223,82 +241,50 @@ textarea{
     <div class="links">
       <a href="index.html">Home</a>
       <a href="profile.html">Profile</a>
-      <a href="login.html">Login</a>
-      <a class="btn" href="signup.html">Join</a>
+      <a href="admin.html">Admin</a>
+      <a href="login.html" id="loginLink">Login</a>
     </div>
   </nav>
 </header>
 
 <main class="container">
-  <div class="layout">
+  <div id="loading" class="loading">Loading post...</div>
 
+  <div class="layout" id="pageContent" style="display:none;">
     <article class="card">
       <div class="author">
-        <div class="avatar">AK</div>
+        <div class="avatar" id="authorAvatar">DN</div>
         <div>
-          <strong>Ankit Kumar</strong>
-          <small>SQL Developer • Posted 20 min ago</small>
+          <strong id="authorName">Community Member</strong>
+          <small id="postMeta">Loading...</small>
         </div>
       </div>
 
-      <h1>Why your dashboard becomes slow after joins</h1>
-
-      <p>
-        Many dashboard performance problems start with one silent issue:
-        duplicate keys before joining tables. A join that looks correct can multiply rows,
-        distort totals, and slow the complete dashboard.
-      </p>
+      <h1 id="postTitle">Post title</h1>
 
       <div class="tags">
-        <span>SQL</span>
-        <span>Dashboard</span>
-        <span>Performance</span>
-        <span>Data Modeling</span>
+        <span id="postCategory">Category</span>
+        <span>Live Post</span>
       </div>
 
       <div class="cover">📊</div>
 
-      <h2>Main explanation</h2>
-      <p>
-        Before joining two datasets, always check whether the joining column is unique
-        on at least one side. If both sides contain repeated values, the output can become
-        many-to-many and create unexpected duplicate records.
-      </p>
-
-      <p>
-        For example, if one equipment number exists three times in Table A and five times
-        in Table B, the join can create fifteen rows for that equipment. This is why row
-        counts suddenly jump after joining.
-      </p>
-
-      <h2>Checklist before joining</h2>
-      <p>1. Check duplicate count in both tables.</p>
-      <p>2. Decide the correct grain of the report.</p>
-      <p>3. Aggregate the child table before joining.</p>
-      <p>4. Use latest-date logic where only one record is required.</p>
-      <p>5. Validate final row count after join.</p>
+      <h2>Post Details</h2>
+      <p class="post-content" id="postContent">Post content</p>
 
       <div class="actions">
-        <button onclick="likePost()">👍 Like <span id="likeCount">248</span></button>
-        <button>💬 Comment</button>
+        <button onclick="toggleLike()" id="likeBtn">👍 0</button>
+        <button onclick="sharePost()">🔗 Share</button>
         <button>🔖 Bookmark</button>
         <button>🚩 Report</button>
-        <button onclick="sharePost()">🔗 Share</button>
       </div>
 
       <section>
         <h2>Comments</h2>
 
-        <div id="comments">
-          <div class="comment">
-            <strong>Priya Roy</strong>
-            <p>This is exactly why my dashboard row count increased after lookup. Very useful.</p>
-          </div>
-          <div class="comment">
-            <strong>Deepak Sen</strong>
-            <p>Aggregating before join is the cleanest fix. Good explanation.</p>
-          </div>
-        </div>
+        <div id="comments"></div>
+
+        <div id="messageBox" class="msg"></div>
 
         <textarea id="commentBox" placeholder="Write your comment..."></textarea>
         <button class="btn" onclick="addComment()">Post Comment</button>
@@ -308,57 +294,241 @@ textarea{
     <aside class="card">
       <h2>Post Analytics</h2>
       <div class="metric">
-        <div><strong>248</strong><span>Likes</span></div>
-        <div><strong>42</strong><span>Comments</span></div>
-        <div><strong>89</strong><span>Saves</span></div>
-        <div><strong>1.8K</strong><span>Views</span></div>
+        <div><strong id="likeCount">0</strong><span>Likes</span></div>
+        <div><strong id="commentCount">0</strong><span>Comments</span></div>
+        <div><strong>0</strong><span>Saves</span></div>
+        <div><strong>Live</strong><span>Status</span></div>
       </div>
 
       <br>
 
       <h2>Related Posts</h2>
-      <div class="side-list">
-        <a class="side-item" href="post.html">
-          <h3>SQL duplicate join issue</h3>
-          <p>How to detect and fix row multiplication.</p>
-        </a>
-        <a class="side-item" href="post.html">
-          <h3>Dashboard KPI validation</h3>
-          <p>Checklist before sharing reports.</p>
-        </a>
-        <a class="side-item" href="post.html">
-          <h3>Python data cleaning steps</h3>
-          <p>Clean messy Excel data with pandas.</p>
-        </a>
-      </div>
+      <div class="side-list" id="relatedPosts"></div>
     </aside>
-
   </div>
 </main>
 
-<script>
-let likes = 248;
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-function likePost(){
-  likes++;
-  document.getElementById("likeCount").innerText = likes;
+<script>
+const SUPABASE_URL = "https://fthirvblokveageirpwa.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0aGlydmJsb2t2ZWFnZWlycHdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwNTU5MTgsImV4cCI6MjA5NzYzMTkxOH0.gRenoM6MwHLA-idWynTMYbabfrNHzHf32st8zml3cNA";
+
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let currentUser = null;
+let currentPost = null;
+let currentPostId = null;
+let userLiked = false;
+
+function escapeHTML(str){
+  return String(str || "").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 }
 
-function addComment(){
+function showMessage(type,msg){
+  const box = document.getElementById("messageBox");
+  box.className = "msg " + type;
+  box.style.display = "block";
+  box.innerText = msg;
+}
+
+function getInitials(email){
+  return email ? email.substring(0,2).toUpperCase() : "DN";
+}
+
+function getPostIdFromUrl(){
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
+}
+
+async function checkSession(){
+  const { data } = await supabaseClient.auth.getSession();
+  currentUser = data.session ? data.session.user : null;
+
+  if(currentUser){
+    document.getElementById("loginLink").innerText = "Profile";
+    document.getElementById("loginLink").href = "profile.html";
+  }
+}
+
+async function loadPost(){
+  currentPostId = getPostIdFromUrl();
+
+  let query = supabaseClient
+    .from("posts")
+    .select("*")
+    .order("created_at",{ascending:false});
+
+  if(currentPostId){
+    query = supabaseClient
+      .from("posts")
+      .select("*")
+      .eq("id", currentPostId);
+  }
+
+  const { data, error } = await query.limit(1);
+
+  if(error || !data || !data.length){
+    document.getElementById("loading").innerText = "Post not found.";
+    return;
+  }
+
+  currentPost = data[0];
+  currentPostId = currentPost.id;
+
+  document.getElementById("postTitle").innerText = currentPost.title || "Untitled Post";
+  document.getElementById("postContent").innerText = currentPost.content || "";
+  document.getElementById("postCategory").innerText = currentPost.category || "General";
+  document.getElementById("postMeta").innerText = `${currentPost.category || "General"} • ${new Date(currentPost.created_at).toLocaleString("en-IN")}`;
+  document.getElementById("authorAvatar").innerText = getInitials(currentPost.user_id);
+
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("pageContent").style.display = "grid";
+
+  await loadLikes();
+  await loadComments();
+  await loadRelatedPosts();
+}
+
+async function loadLikes(){
+  const { data: likes } = await supabaseClient
+    .from("likes")
+    .select("*")
+    .eq("post_id", currentPostId);
+
+  const likeCount = likes ? likes.length : 0;
+
+  userLiked = false;
+  if(currentUser && likes){
+    userLiked = likes.some(like => like.user_id === currentUser.id);
+  }
+
+  document.getElementById("likeCount").innerText = likeCount;
+  document.getElementById("likeBtn").innerText = `👍 ${likeCount}`;
+
+  if(userLiked){
+    document.getElementById("likeBtn").style.background = "linear-gradient(135deg,#ffcf33,#00e5ff)";
+    document.getElementById("likeBtn").style.color = "#06101d";
+  }else{
+    document.getElementById("likeBtn").style.background = "rgba(255,255,255,.09)";
+    document.getElementById("likeBtn").style.color = "#eef6ff";
+  }
+}
+
+async function toggleLike(){
+  if(!currentUser){
+    alert("Please login first to like posts.");
+    window.location.href = "login.html";
+    return;
+  }
+
+  if(userLiked){
+    await supabaseClient
+      .from("likes")
+      .delete()
+      .eq("post_id", currentPostId)
+      .eq("user_id", currentUser.id);
+  }else{
+    const { error } = await supabaseClient
+      .from("likes")
+      .insert({
+        post_id: currentPostId,
+        user_id: currentUser.id
+      });
+
+    if(error){
+      alert(error.message);
+      return;
+    }
+  }
+
+  await loadLikes();
+}
+
+async function loadComments(){
+  const { data, error } = await supabaseClient
+    .from("comments")
+    .select("*")
+    .eq("post_id", currentPostId)
+    .order("created_at",{ascending:true});
+
+  const commentsBox = document.getElementById("comments");
+
+  if(error){
+    commentsBox.innerHTML = `<div class="comment">Unable to load comments: ${escapeHTML(error.message)}</div>`;
+    return;
+  }
+
+  document.getElementById("commentCount").innerText = data ? data.length : 0;
+
+  if(!data || !data.length){
+    commentsBox.innerHTML = `<div class="comment"><strong>No comments yet</strong><p>Start the discussion.</p></div>`;
+    return;
+  }
+
+  commentsBox.innerHTML = data.map(comment => `
+    <div class="comment">
+      <strong>Community Member</strong>
+      <small>${new Date(comment.created_at).toLocaleString("en-IN")}</small>
+      <p class="post-content">${escapeHTML(comment.comment)}</p>
+    </div>
+  `).join("");
+}
+
+async function addComment(){
+  if(!currentUser){
+    alert("Please login first to comment.");
+    window.location.href = "login.html";
+    return;
+  }
+
   const box = document.getElementById("commentBox");
   const text = box.value.trim();
 
   if(!text){
-    alert("Please write a comment first.");
+    showMessage("error","Please write a comment first.");
     return;
   }
 
-  const div = document.createElement("div");
-  div.className = "comment";
-  div.innerHTML = `<strong>You</strong><p>${escapeHTML(text)}</p>`;
+  const { error } = await supabaseClient
+    .from("comments")
+    .insert({
+      post_id: currentPostId,
+      user_id: currentUser.id,
+      comment: text
+    });
 
-  document.getElementById("comments").appendChild(div);
+  if(error){
+    showMessage("error",error.message);
+    return;
+  }
+
+  showMessage("success","Comment added successfully.");
   box.value = "";
+  await loadComments();
+}
+
+async function loadRelatedPosts(){
+  const { data } = await supabaseClient
+    .from("posts")
+    .select("*")
+    .neq("id", currentPostId)
+    .order("created_at",{ascending:false})
+    .limit(3);
+
+  const related = document.getElementById("relatedPosts");
+
+  if(!data || !data.length){
+    related.innerHTML = `<div class="side-item">No related posts yet.</div>`;
+    return;
+  }
+
+  related.innerHTML = data.map(post => `
+    <a class="side-item" href="post.html?id=${post.id}">
+      <h3>${escapeHTML(post.title)}</h3>
+      <p>${escapeHTML(post.category)}</p>
+    </a>
+  `).join("");
 }
 
 function sharePost(){
@@ -366,17 +536,12 @@ function sharePost(){
   alert("Post link copied.");
 }
 
-function escapeHTML(str){
-  return str.replace(/[&<>"']/g,function(match){
-    return {
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#039;"
-    }[match];
-  });
+async function init(){
+  await checkSession();
+  await loadPost();
 }
+
+init();
 </script>
 
 </body>
